@@ -173,6 +173,12 @@ input {
   box-shadow: none;
 }
 
+input[type="date"] {
+  height: auto;
+  min-height: 40px;
+  padding: 8px 12px;
+}
+
 input::placeholder {
   color: var(--color-primary-light);
 }
