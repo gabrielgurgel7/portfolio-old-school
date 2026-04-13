@@ -11,7 +11,8 @@
 :root {
   /* LIGHT THEME */
   --color-primary: #314290;
-  --color-primary-light: #4a71c0;
+  --color-primary-light: #5780d4;
+  --color-primary-light-2: #b5b5b582;
 
   --color-background: #f1f2ed;
   --color-surface: #ffffff;
@@ -34,7 +35,7 @@
   --body-clear-theme: white;
 
   /* PALLETE */
-  --header-icons: #4a71c0;
+  --header-icons: #6292f1;
 
   /* BORDER COLORS */
   --divider-two: #e0e0e0;
@@ -126,7 +127,7 @@ body {
 }
 
 a {
-  color: var(--color-primary-light);
+  color: var(--header-icons);
   text-decoration: none;
 }
 
