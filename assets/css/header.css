@@ -23,16 +23,15 @@
 }
 
 #overflow-menu-wrapper {
-  position: absolute; /* agora se ancora no .main-header */
-  top: 110px; /* ajuste conforme a altura do seu header */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 110px;
   left: 24px;
 }
 
 #overflow-menu {
-  position: relative; /* ← âncora para o botão absolute */
-  min-width: 32px; /* ← garante largura mínima para o botão não sumir */
-  /* top: 110px;
-  left: 16px; */
+  min-width: 32px;
   width: 40px;
   display: flex;
   flex-direction: column;
@@ -44,16 +43,13 @@
 }
 
 #ellipsis-menu-btn {
-  position: absolute;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1px solid var(--color-surface);
   border-radius: 50%;
-  background-color: var(--color-surface);
 }
 
 #ellipsis-menu-btn i,
@@ -66,7 +62,7 @@
 .navigation-list {
   display: flex;
   flex-direction: column;
-  /* padding: 8px 0 8px 0px; */
+  padding: 8px 0 8px 0px;
   align-items: center;
   justify-content: center;
   gap: 16px;

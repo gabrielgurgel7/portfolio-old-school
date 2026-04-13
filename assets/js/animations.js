@@ -2,17 +2,18 @@ const overflowMenu = document.getElementById("overflow-menu");
 const ellipsisBtn = document.getElementById("ellipsis-menu-btn");
 const menuItems = overflowMenu.querySelectorAll("li:not(.hidden)");
 
+// 🔒 Estado inicial (menu escondido)
 gsap.set(overflowMenu, {
   opacity: 0,
-  scale: 0.96,
+  scale: 0.95,
+  y: -8,
   transformOrigin: "top right",
-  backdropFilter: "blur(0px)",
+  pointerEvents: "none",
 });
 
 gsap.set(menuItems, {
   opacity: 0,
   y: -10,
-  display: "none",
 });
 
 let isOpen = false;
@@ -23,50 +24,42 @@ ellipsisBtn.addEventListener("click", () => {
   });
 
   if (!isOpen) {
-    // ABRIR
-    gsap.set(menuItems, { display: "flex" });
-
+    // 🟢 ABRIR
     tl.to(overflowMenu, {
       opacity: 1,
       scale: 1,
-      backdropFilter: "blur(16px)",
-      paddingTop: 48,
-      paddingBottom: 12,
-      duration: 0.35,
+      y: 0,
+      duration: 0.25,
+      pointerEvents: "auto",
     }).to(
       menuItems,
       {
         opacity: 1,
         y: 0,
-        duration: 0.45,
+        duration: 0.35,
         stagger: 0.08,
-        pointerEvents: "auto",
       },
-      "-=0.2",
+      "-=0.15",
     );
   } else {
-    // FECHAR
+    // 🔴 FECHAR
     tl.to(menuItems, {
       opacity: 0,
       y: -10,
       duration: 0.25,
       ease: "power2.in",
       stagger: 0.05,
-      pointerEvents: "none",
-    })
-      .to(
-        overflowMenu,
-        {
-          opacity: 0,
-          scale: 0.96,
-          backdropFilter: "blur(0px)",
-          paddingTop: 0,
-          paddingBottom: 0,
-          duration: 0.25,
-        },
-        "-=0.15",
-      )
-      .set(menuItems, { display: "none" });
+    }).to(
+      overflowMenu,
+      {
+        opacity: 0,
+        scale: 0.95,
+        y: -8,
+        duration: 0.2,
+        pointerEvents: "none",
+      },
+      "-=0.1",
+    );
   }
 
   isOpen = !isOpen;
