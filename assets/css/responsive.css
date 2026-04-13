@@ -46,6 +46,12 @@
     max-width: 95vw;
     border-radius: 24px;
   }
+
+  textarea {
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+  }
 }
 
 /* MOBILE  (≤ 480px) */
@@ -139,5 +145,11 @@
 
   .form-actions button {
     width: 100%;
+  }
+
+  textarea {
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
   }
 }
