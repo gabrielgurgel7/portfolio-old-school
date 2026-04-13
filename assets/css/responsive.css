@@ -7,8 +7,12 @@
 
   .container-navigation {
     padding: 12px 16px;
-    border-radius: 32px;
+    border-radius: 64px;
     gap: 12px;
+  }
+
+  .container-navigation h1 {
+    font-size: var(--text-2xl);
   }
 
   .navigation-list {
@@ -16,7 +20,7 @@
   }
 
   .navigation-list a {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   /* SECTION */
@@ -60,19 +64,17 @@
   .container-navigation {
     flex-wrap: wrap;
     justify-content: space-between;
-    border-radius: 20px;
+    border-radius: 64px;
     padding: 12px;
     gap: 8px;
   }
 
   /* Esconde os links de navegação e exibe só os ícones */
   .navigation-list {
-    order: 3; /* vai para a 3ª linha */
+    /* order: 3; vai para a 3ª linha */
     width: 100%;
     justify-content: center;
     gap: 16px;
-    padding-top: 8px;
-    border-top: 1px solid var(--color-border);
   }
 
   .navigation-list a {

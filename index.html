@@ -12,16 +12,9 @@
     <main class="page-content">
       <!-- CABEÇALHO PRONCIPAL DO SITE -->
       <header class="main-header">
-        <div class="container-navigation">
-          <h1>Old.school</h1>
-          <ul class="navigation-list">
-            <li><a href="#">SOBRE</a></li>
-            <li><a href="#">PROJETOS</a></li>
-            <li><a href="#">CONTATO</a></li>
-            <li id="manage-projects" class="hidden">
-              <a id="open-modal-project" href="#">GERENCIAR PROJETOS</a>
-            </li>
-          </ul>
+        <div class="container-navigation glass">
+          <h1>Gab.Gurgel</h1>
+
           <div class="user-container">
             <button id="theme-toggle">
               <i id="theme-icon" data-lucide="moon"></i>
@@ -36,6 +29,46 @@
                 </div>
               </div>
             </a>
+          </div>
+        </div>
+        <div id="overflow-menu-wrapper">
+          <div id="overflow-menu" class="glass">
+            <button id="ellipsis-menu-btn" aria-label="Menu">
+              <i id="theme-icon" data-lucide="ellipsis"></i>
+            </button>
+            <ul class="navigation-list">
+              <li>
+                <a href="#"
+                  ><i id="theme-icon" data-lucide="info" aria-label="Sobre"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i
+                    id="theme-icon"
+                    data-lucide="folder-root"
+                    aria-label="Projetos"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i
+                    id="theme-icon"
+                    data-lucide="contact"
+                    aria-label="Contato"
+                  ></i
+                ></a>
+              </li>
+              <li id="manage-projects" class="hidden">
+                <a
+                  id="open-modal-project"
+                  href="#"
+                  aria-label="Gerenciar Projetos"
+                  ><i id="theme-icon" data-lucide="chart-no-axes-gantt"></i
+                ></a>
+              </li>
+            </ul>
           </div>
         </div>
       </header>
@@ -264,9 +297,12 @@
           </footer>
         </div>
       </dialog>
+      <footer></footer>
     </main>
 
     <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/animations.js"></script>
   </body>
 </html>
