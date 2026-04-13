@@ -1,12 +1,4 @@
-/* ============================================
-   RESPONSIVE.CSS — Desktop-first breakpoints
-   Importar no final do styles.css:
-   @import url(responsive.css);
-   ============================================ */
-
-/* ─────────────────────────────────────────────
-   TABLET  (≤ 768px)
-───────────────────────────────────────────── */
+/* TABLET  (≤ 768px) */
 @media (max-width: 768px) {
   /* HEADER */
   .main-header {
@@ -56,9 +48,7 @@
   }
 }
 
-/* ─────────────────────────────────────────────
-   MOBILE  (≤ 480px)
-───────────────────────────────────────────── */
+/* MOBILE  (≤ 480px) */
 @media (max-width: 480px) {
   /* HEADER — empilha logo + nav + ícones */
   .container-navigation {
