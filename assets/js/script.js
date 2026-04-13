@@ -112,6 +112,7 @@ const createCard = (data) => {
 
   const card = document.createElement("article");
   card.classList.add("project-card");
+  card.classList.add("glass");
 
   const techItems = technologies
     ? technologies
@@ -121,7 +122,7 @@ const createCard = (data) => {
     : "";
 
   card.innerHTML = `
-    <header class="project-header glass">
+    <header class="project-header">
       <h3>${title}</h3>
       <a href="${gitHub}" target="_blank" rel="noopener noreferrer">
         <i data-lucide="arrow-up-right"></i>
@@ -134,7 +135,6 @@ const createCard = (data) => {
     </main>
     <footer class="project-footer">
       <ul class="tech-list">${techItems}</ul>
-      <hr>
       <div class="project-links">
         <a class="link-project" href="${link}" target="_blank" rel="noopener noreferrer">Link projeto</a>
         <a class="link-project" href="${gitHub}" target="_blank" rel="noopener noreferrer">Link GitHub</a>

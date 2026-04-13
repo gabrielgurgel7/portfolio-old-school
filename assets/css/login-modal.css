@@ -1,10 +1,7 @@
 /* MODAL DE LOGIN */
 #login {
-  border: none;
   padding: 0;
   border-radius: 32px;
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow);
   max-width: 400px;
   width: 100%;
   margin: auto;
@@ -27,6 +24,7 @@
 }
 
 .legal-text {
+  color: var(--color-background);
   padding: 16px;
 }
 
