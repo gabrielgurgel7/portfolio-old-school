@@ -1,8 +1,44 @@
 const overflowMenu = document.getElementById("overflow-menu");
 const ellipsisBtn = document.getElementById("ellipsis-menu-btn");
+const menuWrapper = document.getElementById("overflow-menu-wrapper");
 const menuItems = overflowMenu.querySelectorAll("li:not(.hidden)");
 
-// 🔒 Estado inicial (menu escondido)
+// ─── DRAGGABLE ───────────────────────────────────────────────
+gsap.registerPlugin(Draggable);
+
+const STORAGE_KEY = "floatingMenuPos";
+
+const savedPos = JSON.parse(localStorage.getItem(STORAGE_KEY));
+if (savedPos) {
+  gsap.set(menuWrapper, { x: savedPos.x, y: savedPos.y });
+}
+
+let isDragging = false;
+
+Draggable.create(menuWrapper, {
+  type: "x,y",
+  edgeResistance: 0.65,
+  bounds: window,
+  inertia: true,
+
+  onDragStart() {
+    isDragging = false;
+  },
+
+  onDrag() {
+    isDragging = true;
+  },
+
+  onDragEnd() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ x: this.x, y: this.y }));
+
+    setTimeout(() => {
+      isDragging = false;
+    }, 0);
+  },
+});
+
+// ─── MENU ABRIR/FECHAR ────────────────────────────────────────
 gsap.set(overflowMenu, {
   opacity: 0,
   scale: 0.95,
@@ -19,12 +55,13 @@ gsap.set(menuItems, {
 let isOpen = false;
 
 ellipsisBtn.addEventListener("click", () => {
+  if (isDragging) return;
+
   const tl = gsap.timeline({
     defaults: { ease: "power3.out" },
   });
 
   if (!isOpen) {
-    // 🟢 ABRIR
     tl.to(overflowMenu, {
       opacity: 1,
       scale: 1,
@@ -42,7 +79,6 @@ ellipsisBtn.addEventListener("click", () => {
       "-=0.15",
     );
   } else {
-    // 🔴 FECHAR
     tl.to(menuItems, {
       opacity: 0,
       y: -10,

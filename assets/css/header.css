@@ -23,9 +23,17 @@
 #overflow-menu-wrapper {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 124px;
   right: 16px;
+  z-index: 100;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+#overflow-menu-wrapper:active {
+  cursor: grabbing;
 }
 
 #overflow-menu {
