@@ -1,0 +1,56 @@
+.container-perfil {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.container-perfil p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: white;
+  font-weight: 400;
+  pointer-events: none; /* evita interferir no clique */
+  z-index: 1;
+
+  transition: var(--transitions);
+}
+
+/* FOTO DO USUÁRIO / HEADER */
+.photo-user {
+  display: flex;
+
+  align-items: end;
+  justify-content: end;
+
+  height: 42px;
+  width: 42px;
+
+  border: 1px solid #818181;
+  border-radius: 50%;
+
+  background-color: #818181;
+}
+
+/* STATUS DO USUÁRIO / PERFIL */
+.user-status {
+  height: 12px;
+  width: 12px;
+
+  border: 2px solid var(--color-surface);
+  border-radius: 50%;
+
+  background-color: #818181;
+}
+
+.online-user {
+  background-color: rgb(85, 252, 85);
+  transition: var(--transitions);
+}
+
+.offline-user {
+  background-color: rgb(252, 85, 85);
+  transition: var(--transitions);
+}

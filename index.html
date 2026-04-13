@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste</title>
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <main class="page-content">
+      <!-- CABEÇALHO PRONCIPAL DO SITE -->
+      <header class="main-header">
+        <div class="container-navigation">
+          <h1>Old.school</h1>
+          <ul class="navigation-list">
+            <li><a href="#">SOBRE</a></li>
+            <li><a href="#">PROJETOS</a></li>
+            <li><a href="#">CONTATO</a></li>
+            <li id="manage-projects" class="hidden">
+              <a id="open-modal-project" href="#">GERENCIAR PROJETOS</a>
+            </li>
+          </ul>
+          <div class="user-container">
+            <button id="theme-toggle">
+              <i id="theme-icon" data-lucide="moon"></i>
+            </button>
+
+            <a id="login-link" href="#login"><i data-lucide="user"></i></a>
+
+            <a id="user" href="#user" aria-label="Usuário on-line">
+              <div class="container-perfil">
+                <div class="photo-user">
+                  <div class="user-status"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- SEÇÃO DE PROJETOS -->
+      <section>
+        <header>
+          <h2>Projetos</h2>
+          <p>Seção destinada aos projetos do autor desse site.</p>
+        </header>
+        <main id="container-projects"></main>
+        <footer></footer>
+      </section>
+
+      <!-- MODAL DE LOGIN -->
+      <dialog id="login" aria-labelledby="login-title">
+        <header class="modal-login-inner">
+          <h2 id="login-title">Login</h2>
+          <button class="close-button" aria-label="Fechar" id="close-login">
+            <i data-lucide="x"></i>
+          </button>
+        </header>
+
+        <hr class="divider" />
+
+        <main>
+          <form action="/login" method="POST" id="login-form" novalidate>
+            <div class="field">
+              <label for="login-user">Usuário</label>
+              <input
+                type="text"
+                name="login-user"
+                id="login-user"
+                placeholder="Seu usuário"
+                autocomplete="username"
+                required
+                aria-required="true"
+              />
+            </div>
+
+            <div class="field">
+              <label for="login-password">Senha</label>
+              <input
+                type="password"
+                name="login-password"
+                id="login-password"
+                placeholder="Sua senha"
+                autocomplete="current-password"
+                required
+                aria-required="true"
+              />
+            </div>
+
+            <a href="#forgot-password" class="forgot-password">
+              <small>Esqueceu sua senha?</small>
+            </a>
+
+            <div class="login-buttons">
+              <button type="button" class="register-button">Registre-se</button>
+              <button type="submit" class="login-button primary-button">
+                Entrar
+              </button>
+            </div>
+          </form>
+        </main>
+
+        <hr class="divider" />
+
+        <footer class="legal-text">
+          <p class="cheklist-terms">
+            <small>
+              Ao realizar o login, você concorda com nossos <br />
+              <a href="#use-terms">Termos de Uso</a> e
+              <a href="#privacy-policy">Política de Privacidade</a>.
+            </small>
+          </p>
+        </footer>
+      </dialog>
+
+      <!-- MODAL DE CRIAR PROJETO -->
+      <dialog id="modal-create-project" aria-labelledby="modal-project-title">
+        <div class="modal-project-inner">
+          <header class="modal-project-header">
+            <h2 id="modal-project-title">Criar projeto</h2>
+            <button
+              class="close-button"
+              aria-label="Fechar"
+              id="close-modal-project"
+            >
+              <i data-lucide="x"></i>
+            </button>
+          </header>
+
+          <hr class="divider" />
+
+          <main class="modal-project-main">
+            <form
+              id="create-project-form"
+              action="/projects"
+              method="POST"
+              enctype="multipart/form-data"
+              novalidate
+            >
+              <fieldset>
+                <legend class="sr-only">Informações do projeto</legend>
+
+                <div class="field">
+                  <label for="project-title"
+                    >Título <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    type="text"
+                    name="project-title"
+                    id="project-title"
+                    placeholder="Ex: Portfolio pessoal"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="creation-date"
+                    >Data de criação <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    type="date"
+                    name="creation-date"
+                    id="creation-date"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+
+                <div class="field field--full">
+                  <label for="description"
+                    >Descrição <span aria-hidden="true">*</span></label
+                  >
+                  <textarea
+                    name="description"
+                    id="description"
+                    rows="4"
+                    placeholder="Objetivo, contexto e diferenciais do projeto"
+                    required
+                    aria-required="true"
+                    aria-describedby="description-hint"
+                  ></textarea>
+                  <small id="description-hint">Mínimo de 20 caracteres.</small>
+                </div>
+
+                <div class="field">
+                  <label for="technologies"
+                    >Tecnologias <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    type="text"
+                    name="technologies"
+                    id="technologies"
+                    placeholder="Ex: HTML, CSS, JS"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                    aria-describedby="technologies-hint"
+                  />
+                  <small id="technologies-hint">Separe por vírgula.</small>
+                </div>
+
+                <div class="field">
+                  <label for="project-image">Imagem</label>
+                  <input
+                    type="file"
+                    name="project-image"
+                    id="project-image"
+                    accept="image/png, image/jpeg, image/webp"
+                    aria-describedby="project-image-hint"
+                  />
+                  <small id="project-image-hint"
+                    >PNG, JPEG ou WebP. Máx. 2MB.</small
+                  >
+                </div>
+
+                <div class="field">
+                  <label for="link-project">Link do projeto</label>
+                  <input
+                    type="url"
+                    name="link-project"
+                    id="link-project"
+                    placeholder="https://meu-projeto.com"
+                    autocomplete="off"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="link-github">Link do GitHub</label>
+                  <input
+                    type="url"
+                    name="link-github"
+                    id="link-github"
+                    placeholder="https://github.com/usuario/repo"
+                    autocomplete="off"
+                  />
+                </div>
+              </fieldset>
+              <div class="form-actions">
+                <button type="reset">Limpar</button>
+                <button
+                  id="create-project-btn"
+                  type="submit"
+                  class="primary-button"
+                >
+                  Criar projeto
+                </button>
+              </div>
+            </form>
+          </main>
+          <hr class="divider" />
+
+          <footer class="legal-text">
+            <p class="cheklist-terms">
+              <small>
+                Ao criar o projeto, você concorda com nossos <br />
+                <a href="#use-terms">Termos de Uso</a> e
+                <a href="#privacy-policy">Política de Privacidade</a>.
+              </small>
+            </p>
+          </footer>
+        </div>
+      </dialog>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/script.js"></script>
+  </body>
+</html>

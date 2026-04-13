@@ -1,0 +1,153 @@
+/* ============================================
+   RESPONSIVE.CSS — Desktop-first breakpoints
+   Importar no final do styles.css:
+   @import url(responsive.css);
+   ============================================ */
+
+/* ─────────────────────────────────────────────
+   TABLET  (≤ 768px)
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* HEADER */
+  .main-header {
+    padding: 12px;
+  }
+
+  .container-navigation {
+    padding: 12px 16px;
+    border-radius: 32px;
+    gap: 12px;
+  }
+
+  .navigation-list {
+    gap: 12px;
+  }
+
+  .navigation-list a {
+    font-size: 13px;
+  }
+
+  /* SECTION */
+  section {
+    margin: 0 12px;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  /* GRID DE PROJETOS */
+  #container-projects {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  /* MODAL DE CRIAR PROJETO — fieldset vira 1 coluna */
+  #create-project-form fieldset {
+    grid-template-columns: 1fr;
+  }
+
+  #modal-create-project {
+    border-radius: 24px;
+    max-width: 95vw;
+  }
+
+  /* MODAL DE LOGIN */
+  #login {
+    max-width: 95vw;
+    border-radius: 24px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE  (≤ 480px)
+───────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* HEADER — empilha logo + nav + ícones */
+  .container-navigation {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  /* Esconde os links de navegação e exibe só os ícones */
+  .navigation-list {
+    order: 3; /* vai para a 3ª linha */
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .navigation-list a {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Ícones de usuário ficam à direita do logo */
+  .user-container {
+    gap: 10px;
+  }
+
+  /* SECTION */
+  section {
+    margin: 0 8px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  /* GRID — 1 coluna em mobile */
+  #container-projects {
+    grid-template-columns: 1fr;
+  }
+
+  /* CARD */
+  .project-card {
+    min-height: auto;
+  }
+
+  .img-container-project {
+    height: 180px;
+  }
+
+  /* BOTÕES DO CARD lado a lado */
+  .project-links {
+    flex-direction: row;
+  }
+
+  /* MODAL DE CRIAR PROJETO — ocupa tela toda */
+  #modal-create-project {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100dvh;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .modal-project-inner {
+    min-height: 100dvh;
+  }
+
+  /* MODAL DE LOGIN */
+  #login {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 24px 24px 0 0;
+    margin: auto 0 0 0; /* ancora na base da tela */
+  }
+
+  /* BOTÕES DE LOGIN empilhados */
+  .login-buttons {
+    flex-direction: column;
+  }
+
+  /* FORM ACTIONS alinha ao centro */
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
