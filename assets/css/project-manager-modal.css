@@ -26,8 +26,13 @@
   padding: 16px;
 }
 
+#modal-project-title {
+  color: var(--color-text);
+}
+
 .modal-project-main {
   padding: 0 16px 16px 16px;
+  background-color: var(--color-surface);
 }
 
 #create-project-form fieldset {
@@ -52,21 +57,23 @@
 .field label {
   font-size: 0.875rem;
   font-weight: 600;
+  color: var(--color-text);
 }
 
 .field input,
 .field textarea {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border-strong);
   border-radius: 8px;
   font-size: 0.875rem;
-  background-color: var(--color-surface);
-  color: inherit;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
 }
 
 #description::placeholder {
   font-family: Helvetica, sans-serif;
+  color: var(--color-text-muted);
 }
 
 .field input[type="file"] {
@@ -75,7 +82,7 @@
 
 .field small {
   font-size: 0.75rem;
-  color: #888;
+  color: var(--color-text-muted);
 }
 
 .form-actions {

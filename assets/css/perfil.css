@@ -28,10 +28,10 @@
   height: 42px;
   width: 42px;
 
-  border: 1px solid #818181;
+  border: 1px solid var(--color-border-strong);
   border-radius: 50%;
 
-  background-color: #818181;
+  background-color: var(--color-border-strong);
 }
 
 /* STATUS DO USUÁRIO / PERFIL */
@@ -42,7 +42,7 @@
   border: 1px solid var(--color-surface);
   border-radius: 50%;
 
-  background-color: #818181;
+  background-color: var(--color-border-strong);
 }
 
 .online-user {

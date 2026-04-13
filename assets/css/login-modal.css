@@ -21,11 +21,17 @@
 
 #login main {
   padding: 16px;
+  background-color: var(--color-surface);
+}
+
+#login-title {
+  color: var(--color-text);
 }
 
 .legal-text {
-  color: var(--color-background);
+  color: var(--color-text-muted);
   padding: 16px;
+  background-color: var(--color-surface);
 }
 
 #login-form {

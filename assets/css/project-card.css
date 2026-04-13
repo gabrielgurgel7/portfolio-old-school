@@ -21,6 +21,7 @@
 
   padding: var(--padding-md);
   border-radius: var(--radius-project-header);
+  /* background-color: var(--color); */
 }
 
 .img-container-project {
@@ -71,8 +72,13 @@
 
   border-radius: var(--radius-button);
 
-  color: var(--color-surface);
-  background-color: var(--header-icons);
+  color: #ffffff;
+  background-color: var(--color-accent);
+  transition: background-color 0.2s;
+}
+
+.project-links a:hover {
+  background-color: var(--color-accent-dark);
 }
 
 .project-footer {

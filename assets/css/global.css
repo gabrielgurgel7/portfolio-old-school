@@ -9,38 +9,33 @@
 
 /* VARIÁVEIS (GLOBAL) */
 :root {
-  /* LIGHT THEME */
-  --color-primary: #314290;
-  --color-primary-light: #5780d4;
-  --color-primary-light-2: #b5b5b582;
-
-  --color-background: #f1f2ed;
+  /* PALETA PRINCIPAL */
+  --color-bg: #f5f4f0;
+  --color-bg-secondary: #eceae3;
   --color-surface: #ffffff;
+  --color-text: #1c1f2e;
+  --color-text-muted: #5a5e73;
+  --color-accent: #0f6e56;
+  --color-accent-dark: #085041;
+  --color-cta: #d85a30;
+  --color-cta-dark: #993c1d;
+  --color-border: #d3d1c7;
+  --color-border-strong: #b4b2a9;
 
-  --color-text: #1a1a1a;
-  --color-text-secondary: #555555;
-
-  --color-accent: #f0d32d;
-  --color-accent-contrast: #1a1a1a;
-
-  --color-danger: #ab3a2c;
-
-  --color-border: #e0e0e0;
-
-  /* BACKGROUND COLORS */
-  --input-bg: #17121f;
-  --modal-bg: #271e35;
-  --modal-bg-clear-theme: #f5f5f5;
-
-  --body-clear-theme: white;
-
-  /* PALLETE */
-  --header-icons: #6292f1;
+  /* ALIASES (compatibilidade interna) */
+  --header-icons: var(--color-accent);
+  --input-bg: var(--color-bg-secondary);
+  --modal-bg: var(--color-surface);
+  --modal-bg-clear-theme: var(--color-surface);
+  --body-clear-theme: var(--color-bg);
+  --color-primary: var(--color-accent);
+  --color-primary-light: var(--color-text-muted);
+  --color-background: var(--color-bg);
 
   /* BORDER COLORS */
-  --divider-two: #e0e0e0;
+  --divider-two: var(--color-border);
 
-  --border-clear-theme: 1px solid #818181;
+  --border-clear-theme: 1px solid var(--color-border-strong);
 
   /* RADIUS SCALE */
   --radius-sm: 8px;
@@ -109,12 +104,23 @@
 /* ELEMENTOS (GLOBAL) */
 body {
   font-family: "Helvetica", sans-serif;
-  color: var(--text-clear-theme);
-  background-color: var(--color-background);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 .dark-theme {
-  background-color: #121212;
+  --color-bg: #1c1f2e;
+  --color-bg-secondary: #3b3f5c;
+  --color-surface: #252839;
+  --color-text: #f5f4f0;
+  --color-text-muted: #9fa3b8;
+  --color-accent: #5dcaa5;
+  --color-accent-dark: #1d9e75;
+  --color-cta: #f0997b;
+  --color-cta-dark: #d85a30;
+  --color-border: #2c3147;
+  --color-border-strong: #4a4f70;
+  background-color: var(--color-bg);
 }
 
 .hidden {
@@ -127,7 +133,6 @@ body {
 }
 
 a {
-  color: var(--header-icons);
   text-decoration: none;
 }
 
@@ -141,20 +146,18 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--header-icons);
+  color: var(--color-text);
 }
 
 p {
-  color: #818181;
+  color: var(--color-text-muted);
 }
 
 section {
   display: flex;
   flex-direction: column;
-  /* background-color: var(--color-surface); */
   margin: 0 24px 0 24px;
   padding: 24px;
-
   gap: var(--gap-lg);
   border-radius: var(--radius-section);
 }
@@ -167,9 +170,9 @@ input {
   border-radius: var(--radius-input);
   padding: 0 16px 0 16px;
   font-size: 16px;
-  background-color: #e8f0fe;
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
   outline: none;
   box-shadow: none;
 }
@@ -181,26 +184,26 @@ input[type="date"] {
 }
 
 input::placeholder {
-  color: var(--color-primary-light);
+  color: var(--color-text-muted);
 }
 
 textarea {
   width: 100%;
-  height: auto; /* ← troca o 40px fixo */
+  height: auto;
   min-height: 80px;
   border-radius: var(--radius-input);
-  padding: 8px 12px; /* ← padding vertical funciona melhor */
+  padding: 8px 12px;
   font-size: 16px;
-  background-color: #e8f0fe;
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
   outline: none;
   box-shadow: none;
-  resize: vertical; /* ← permite o usuário redimensionar */
+  resize: vertical;
 }
 
 textarea::placeholder {
-  color: var(--color-primary-light);
+  color: var(--color-text-muted);
 }
 
 /* BOTÃO (GLOBAL) */
@@ -213,13 +216,23 @@ button {
   font-size: var(--text-md);
   font-weight: var(--font-semibold);
   cursor: pointer;
-  /* corner-shape: squircle; */
+  background-color: var(--color-cta);
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--color-cta-dark);
 }
 
 /* BOTÃO PRIMÁRIO */
 .primary-button {
-  background-color: var(--color-primary);
-  color: #f5f5f5;
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background-color: var(--color-accent-dark);
 }
 
 /* BOTÃO FECHAR (GLOBAL) */
@@ -229,11 +242,9 @@ button {
   justify-content: center;
 
   background: transparent;
-  color: var(--color-primary-light);
+  color: var(--color-text);
   width: 42px;
   height: 42px;
-
-  border: 1px solid var(--modal-bg-clear-theme);
   border-radius: 50%;
 }
 
@@ -245,17 +256,24 @@ button {
 }
 
 .close-button:hover {
-  border: 1px solid var(--divider-two);
+  color: var(--color-cta-dark);
+  background-color: transparent;
   transition: 0.3s;
 }
 
 #theme-toggle {
   padding: 0;
   background: transparent;
+  color: var(--color-accent);
 }
 
-#theme-icon {
-  color: var(--header-icons);
+#theme-toggle:hover {
+  background: transparent;
+}
+
+#theme-icon,
+a {
+  color: var(--color-accent);
   transition: var(--transitions);
 }
 
@@ -279,4 +297,15 @@ button {
   border-radius: 16px;
 
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* BLEND MODE */
+.texto-blend {
+  color: rgb(0, 0, 0); /* Cor do texto */
+  mix-blend-mode: screen; /* Efeito de mistura */
+}
+
+.border-blend {
+  border: 1px solid rgb(0, 0, 0);
+  mix-blend-mode: difference;
 }

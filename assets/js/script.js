@@ -117,7 +117,10 @@ const createCard = (data) => {
   const techItems = technologies
     ? technologies
         .split(",")
-        .map((t) => `<li><p><small>${t.trim()}</small></p></li>`)
+        .map(
+          (t) =>
+            `<li><p class="texto-blend"><small>${t.trim()}</small></p></li>`,
+        )
         .join("")
     : "";
 
