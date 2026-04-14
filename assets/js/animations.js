@@ -27,23 +27,20 @@ const getDistance = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
 
 const calcSnapTarget = () => {
   const ghostRect = ghost.getBoundingClientRect();
-  const wrapperRect = menuWrapper.getBoundingClientRect();
   const buttonRect = ellipsisBtn.getBoundingClientRect();
 
-  const offsetX = buttonRect.left - wrapperRect.left;
-  const offsetY = buttonRect.top - wrapperRect.top;
+  // Centro do ghost na viewport
+  const ghostCX = ghostRect.left + ghostRect.width / 2;
+  const ghostCY = ghostRect.top + ghostRect.height / 2;
 
+  // Centro do botão na viewport (posição atual)
+  const buttonCX = buttonRect.left + buttonRect.width / 2;
+  const buttonCY = buttonRect.top + buttonRect.height / 2;
+
+  // Novo transform = transform atual + delta necessário para alinhar centros
   return {
-    x:
-      ghostRect.left -
-      wrapperRect.left -
-      offsetX +
-      gsap.getProperty(menuWrapper, "x"),
-    y:
-      ghostRect.top -
-      wrapperRect.top -
-      offsetY +
-      gsap.getProperty(menuWrapper, "y"),
+    x: gsap.getProperty(menuWrapper, "x") + (ghostCX - buttonCX),
+    y: gsap.getProperty(menuWrapper, "y") + (ghostCY - buttonCY),
   };
 };
 
