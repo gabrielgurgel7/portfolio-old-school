@@ -4,7 +4,6 @@ const menuWrapper = document.getElementById("overflow-menu-wrapper");
 const menuItems = overflowMenu.querySelectorAll("li:not(.hidden)");
 const ghost = document.getElementById("menu-ghost");
 
-// ─── DRAGGABLE ───────────────────────────────────────────────
 gsap.registerPlugin(Draggable);
 
 const STORAGE_KEY = "floatingMenuPos";
@@ -13,69 +12,84 @@ let isDragging = false;
 let startX = 0;
 let startY = 0;
 
-// ─── FUNÇÕES AUXILIARES ───────────────────────────────────────
+// ─── HELPERS ───────────────────────────────────────────────
 const getDistance = (x1, y1, x2, y2) => {
   return Math.hypot(x2 - x1, y2 - y1);
 };
 
+// 🧲 SNAP (FONTE DA VERDADE)
 const snapToGhost = (animate = false) => {
   const ghostRect = ghost.getBoundingClientRect();
   const wrapperRect = menuWrapper.getBoundingClientRect();
   const buttonRect = ellipsisBtn.getBoundingClientRect();
 
-  // 🧠 offset interno (ESSENCIAL)
   const offsetX = buttonRect.left - wrapperRect.left;
   const offsetY = buttonRect.top - wrapperRect.top;
 
-  const targetX =
+  const baseX =
     ghostRect.left -
     wrapperRect.left -
     offsetX +
     gsap.getProperty(menuWrapper, "x");
 
-  const targetY =
+  const baseY =
     ghostRect.top -
     wrapperRect.top -
     offsetY +
     gsap.getProperty(menuWrapper, "y");
 
-  // 🧪 AJUSTE FINO (coloca AQUI)
   const FINE_TUNE_X = 2;
   const FINE_TUNE_Y = 2;
 
+  const finalX = baseX + FINE_TUNE_X;
+  const finalY = baseY + FINE_TUNE_Y;
+
   if (animate) {
     gsap.to(menuWrapper, {
-      x: targetX + FINE_TUNE_X,
-      y: targetY + FINE_TUNE_Y,
+      x: finalX,
+      y: finalY,
       duration: 0.5,
       ease: "elastic.out(1, 0.6)",
     });
   } else {
     gsap.set(menuWrapper, {
-      x: targetX + FINE_TUNE_X,
-      y: targetY + FINE_TUNE_Y,
+      x: finalX,
+      y: finalY,
     });
   }
+
+  return { x: finalX, y: finalY };
 };
 
-// ─── RESTORE POSIÇÃO ─────────────────────────────────────────
-const savedPos = JSON.parse(localStorage.getItem(STORAGE_KEY));
+// ─── RESTORE (CORRETO) ─────────────────────────────────────
+window.addEventListener("load", () => {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-if (savedPos) {
-  if (savedPos.snapped) {
-    // espera layout estabilizar
-    setTimeout(() => snapToGhost(false), 50);
+  if (!saved) return;
+
+  if (saved.snapped) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        snapToGhost(false);
+      });
+    });
   } else {
-    gsap.set(menuWrapper, { x: savedPos.x, y: savedPos.y });
+    gsap.set(menuWrapper, { x: saved.x, y: saved.y });
   }
-}
+});
 
-// ─── DRAG ────────────────────────────────────────────────────
+// ─── DRAG ──────────────────────────────────────────────────
 Draggable.create(menuWrapper, {
   type: "x,y",
   edgeResistance: 0.65,
   bounds: window,
   inertia: true,
+
+  onDragStart() {
+    startX = this.x;
+    startY = this.y;
+    isDragging = false;
+  },
 
   onDrag() {
     const moved = Math.hypot(this.x - startX, this.y - startY);
@@ -84,11 +98,9 @@ Draggable.create(menuWrapper, {
       isDragging = true;
     }
 
-    // 📦 posições
     const ghostRect = ghost.getBoundingClientRect();
     const buttonRect = ellipsisBtn.getBoundingClientRect();
 
-    // 🎯 centros
     const buttonCenterX = buttonRect.left + buttonRect.width / 2;
     const buttonCenterY = buttonRect.top + buttonRect.height / 2;
 
@@ -102,23 +114,20 @@ Draggable.create(menuWrapper, {
       ghostCenterY,
     );
 
-    // ─── 👁️ ATIVAÇÃO VISUAL DO GHOST ───────────────────────────
+    // 👁️ GHOST VISUAL
     const ACTIVATION_RADIUS = 140;
+    ghost.classList.toggle("active", distance < ACTIVATION_RADIUS);
 
-    if (distance < ACTIVATION_RADIUS) {
-      ghost.classList.add("active");
-    } else {
-      ghost.classList.remove("active");
-    }
-
-    // ─── 🧲 MAGNETISMO ─────────────────────────────────────────
+    // 🧲 MAGNETISMO (ALINHADO COM SNAP)
     const MAGNET_RADIUS = 120;
 
     if (distance < MAGNET_RADIUS) {
       const strength = (MAGNET_RADIUS - distance) / MAGNET_RADIUS;
 
-      const pullX = (ghostCenterX - buttonCenterX) * strength * 0.2;
-      const pullY = (ghostCenterY - buttonCenterY) * strength * 0.2;
+      const target = snapToGhost(false); // 👈 usa mesma lógica
+
+      const pullX = (target.x - this.x) * strength * 0.3;
+      const pullY = (target.y - this.y) * strength * 0.3;
 
       gsap.set(menuWrapper, {
         x: this.x + pullX,
@@ -145,14 +154,10 @@ Draggable.create(menuWrapper, {
     );
 
     const SNAP_RADIUS = 100;
-
-    const deltaX = ghostCenterX - buttonCenterX;
-    const deltaY = ghostCenterY - buttonCenterY;
-
     const isSnapped = distance < SNAP_RADIUS;
 
     if (isSnapped) {
-      snapToGhost(true);
+      const final = snapToGhost(true);
 
       localStorage.setItem(
         STORAGE_KEY,
@@ -171,15 +176,15 @@ Draggable.create(menuWrapper, {
       );
     }
 
+    ghost.classList.remove("active");
+
     setTimeout(() => {
       isDragging = false;
     }, 0);
-
-    ghost.classList.remove("active");
   },
 });
 
-// ─── MENU ABRIR/FECHAR ───────────────────────────────────────
+// ─── MENU ───────────────────────────────────────────────────
 gsap.set(overflowMenu, {
   opacity: 0,
   scale: 0.95,
@@ -237,12 +242,4 @@ ellipsisBtn.addEventListener("click", () => {
   }
 
   isOpen = !isOpen;
-});
-
-window.addEventListener("resize", () => {
-  const savedPos = JSON.parse(localStorage.getItem(STORAGE_KEY));
-
-  if (savedPos?.snapped) {
-    snapToGhost(false);
-  }
 });
