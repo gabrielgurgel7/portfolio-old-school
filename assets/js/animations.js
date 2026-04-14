@@ -23,7 +23,6 @@ const MIN_DRAG_MS = 120;
 // ─── ESTADO ────────────────────────────────────────────────
 let isDragging = false;
 let dragLocked = false;
-let wasNearGhost = false;
 let isSnapped = true;
 let startX = 0;
 let startY = 0;
@@ -149,7 +148,6 @@ Draggable.create(menuWrapper, {
   onDrag() {
     const moved = Math.hypot(this.x - startX, this.y - startY);
     const elapsed = Date.now() - startTime;
-    const isNear = distance < ACTIVATION_RADIUS;
 
     if (moved > MIN_DRAG_PX && elapsed > MIN_DRAG_MS) {
       dragLocked = true;
@@ -177,11 +175,6 @@ Draggable.create(menuWrapper, {
         y: this.y + (target.y - this.y) * strength * 0.3,
       });
     }
-    if (isNear && !wasNearGhost) {
-      vibrate(10); // 👈 micro feedback
-    }
-
-    wasNearGhost = isNear;
   },
 
   onDragEnd() {
@@ -200,11 +193,10 @@ Draggable.create(menuWrapper, {
 
     if (distance < SNAP_RADIUS) {
       snapToGhost(true);
-      vibrate(40);
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ snapped: true }));
     } else {
       isSnapped = false;
-      vibrate([10, 30, 10]);
+
       updateGlassShadow(0.25);
       localStorage.setItem(
         STORAGE_KEY,
