@@ -54,22 +54,20 @@ const updateShadowByDistance = (distance) => {
 const calcSnapTarget = () => {
   const ghostRect = ghost.getBoundingClientRect();
   const wrapperRect = menuWrapper.getBoundingClientRect();
-  const buttonRect = ellipsisBtn.getBoundingClientRect();
 
-  const offsetX = buttonRect.left - wrapperRect.left;
-  const offsetY = buttonRect.top - wrapperRect.top;
+  // pega o centro do botão RELATIVO ao wrapper
+  const buttonCX = ellipsisBtn.offsetLeft + ellipsisBtn.offsetWidth / 2;
+  const buttonCY = ellipsisBtn.offsetTop + ellipsisBtn.offsetHeight / 2;
+
+  const ghostCX = ghostRect.left + ghostRect.width / 2;
+  const ghostCY = ghostRect.top + ghostRect.height / 2;
+
+  const wrapperX = gsap.getProperty(menuWrapper, "x");
+  const wrapperY = gsap.getProperty(menuWrapper, "y");
 
   return {
-    x:
-      ghostRect.left -
-      wrapperRect.left -
-      offsetX +
-      gsap.getProperty(menuWrapper, "x"),
-    y:
-      ghostRect.top -
-      wrapperRect.top -
-      offsetY +
-      gsap.getProperty(menuWrapper, "y"),
+    x: wrapperX + (ghostCX - (wrapperRect.left + buttonCX)),
+    y: wrapperY + (ghostCY - (wrapperRect.top + buttonCY)),
   };
 };
 
@@ -169,6 +167,7 @@ Draggable.create(menuWrapper, {
 
     if (distance < MAGNET_RADIUS) {
       const strength = (MAGNET_RADIUS - distance) / MAGNET_RADIUS;
+      updateGlassShadow(strength * 0.1);
       const target = calcSnapTarget();
       gsap.set(menuWrapper, {
         x: this.x + (target.x - this.x) * strength * 0.3,
@@ -192,17 +191,27 @@ Draggable.create(menuWrapper, {
     const distance = getDistance(buttonCX, buttonCY, ghostCX, ghostCY);
 
     if (distance < SNAP_RADIUS) {
+      updateGlassShadow(0);
       snapToGhost(true);
+      vibrate(40);
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ snapped: true }));
     } else {
       isSnapped = false;
-
+      vibrate([10, 30, 10]);
       updateGlassShadow(0.25);
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({ snapped: false, x: this.x, y: this.y }),
       );
     }
+
+    const isNear = distance < ACTIVATION_RADIUS;
+
+    if (isNear && !wasNearGhost) {
+      vibrate(10); // 👈 micro feedback
+    }
+
+    wasNearGhost = isNear;
 
     ghost.classList.remove("active");
 
