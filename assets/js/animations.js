@@ -1,3 +1,10 @@
+// ─── HAPTIC FEEDBACK ───────────────────────────────────────
+const vibrate = (pattern) => {
+  if (navigator.vibrate) {
+    navigator.vibrate(pattern);
+  }
+};
+
 const overflowMenu = document.getElementById("overflow-menu");
 const ellipsisBtn = document.getElementById("ellipsis-menu-btn");
 const menuWrapper = document.getElementById("overflow-menu-wrapper");
@@ -16,6 +23,7 @@ const MIN_DRAG_MS = 120;
 // ─── ESTADO ────────────────────────────────────────────────
 let isDragging = false;
 let dragLocked = false;
+let wasNearGhost = false;
 let isSnapped = true;
 let startX = 0;
 let startY = 0;
@@ -25,22 +33,44 @@ let startTouchY = 0;
 // ─── HELPERS ───────────────────────────────────────────────
 const getDistance = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
 
+// ─── SHADOW DINÂMICO ───────────────────────────────────────
+const updateGlassShadow = (value) => {
+  ellipsisBtn.style.setProperty("--shadow-opacity", value);
+};
+
+const updateShadowByDistance = (distance) => {
+  const maxDistance = 300;
+
+  const clamped = Math.min(distance, maxDistance);
+  const t = clamped / maxDistance;
+
+  // suaviza (curva mais orgânica)
+  const eased = t * t;
+
+  const shadow = eased * 0.25;
+
+  updateGlassShadow(shadow);
+};
+
 const calcSnapTarget = () => {
   const ghostRect = ghost.getBoundingClientRect();
+  const wrapperRect = menuWrapper.getBoundingClientRect();
   const buttonRect = ellipsisBtn.getBoundingClientRect();
 
-  // Centro do ghost na viewport
-  const ghostCX = ghostRect.left + ghostRect.width / 2;
-  const ghostCY = ghostRect.top + ghostRect.height / 2;
+  const offsetX = buttonRect.left - wrapperRect.left;
+  const offsetY = buttonRect.top - wrapperRect.top;
 
-  // Centro do botão na viewport (posição atual)
-  const buttonCX = buttonRect.left + buttonRect.width / 2;
-  const buttonCY = buttonRect.top + buttonRect.height / 2;
-
-  // Novo transform = transform atual + delta necessário para alinhar centros
   return {
-    x: gsap.getProperty(menuWrapper, "x") + (ghostCX - buttonCX),
-    y: gsap.getProperty(menuWrapper, "y") + (ghostCY - buttonCY),
+    x:
+      ghostRect.left -
+      wrapperRect.left -
+      offsetX +
+      gsap.getProperty(menuWrapper, "x"),
+    y:
+      ghostRect.top -
+      wrapperRect.top -
+      offsetY +
+      gsap.getProperty(menuWrapper, "y"),
   };
 };
 
@@ -52,6 +82,7 @@ const snapToGhost = (animate = false) => {
     gsap.set(menuWrapper, { x, y });
   }
   isSnapped = true;
+  updateGlassShadow(0);
   return { x, y };
 };
 
@@ -65,6 +96,7 @@ window.addEventListener("load", () => {
       if (saved && !saved.snapped) {
         gsap.set(menuWrapper, { x: saved.x, y: saved.y });
         isSnapped = false;
+        updateGlassShadow(0.25);
       } else {
         snapToGhost(false);
       }
@@ -117,6 +149,7 @@ Draggable.create(menuWrapper, {
   onDrag() {
     const moved = Math.hypot(this.x - startX, this.y - startY);
     const elapsed = Date.now() - startTime;
+    const isNear = distance < ACTIVATION_RADIUS;
 
     if (moved > MIN_DRAG_PX && elapsed > MIN_DRAG_MS) {
       dragLocked = true;
@@ -134,6 +167,8 @@ Draggable.create(menuWrapper, {
 
     ghost.classList.toggle("active", distance < ACTIVATION_RADIUS);
 
+    updateShadowByDistance(distance);
+
     if (distance < MAGNET_RADIUS) {
       const strength = (MAGNET_RADIUS - distance) / MAGNET_RADIUS;
       const target = calcSnapTarget();
@@ -142,6 +177,11 @@ Draggable.create(menuWrapper, {
         y: this.y + (target.y - this.y) * strength * 0.3,
       });
     }
+    if (isNear && !wasNearGhost) {
+      vibrate(10); // 👈 micro feedback
+    }
+
+    wasNearGhost = isNear;
   },
 
   onDragEnd() {
@@ -160,9 +200,12 @@ Draggable.create(menuWrapper, {
 
     if (distance < SNAP_RADIUS) {
       snapToGhost(true);
+      vibrate(40);
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ snapped: true }));
     } else {
       isSnapped = false;
+      vibrate([10, 30, 10]);
+      updateGlassShadow(0.25);
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({ snapped: false, x: this.x, y: this.y }),
