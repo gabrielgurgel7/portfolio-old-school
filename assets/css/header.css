@@ -135,3 +135,30 @@
   align-items: center;
   gap: 16px;
 }
+
+/* GHOST PARA EFEITO IMÃ / POSICIONAMENTO DO overflow-menu-wrapper  */
+#menu-ghost {
+  /* position: fixed;
+  top: 140px; /* ajusta onde quiser */
+  /* right: 16px; */
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+  border: 1px dashed var(--color-cta);
+
+  pointer-events: none; /* importante! */
+  z-index: 99;
+}
+
+#menu-ghost {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.25s ease;
+}
+
+#menu-ghost.active {
+  opacity: 1;
+  transform: scale(1.1);
+}

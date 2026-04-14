@@ -14,7 +14,7 @@
       <header class="main-header">
         <div class="container-navigation glass">
           <h1>Gab.Gurgel</h1>
-
+          <div id="menu-ghost"></div>
           <div class="user-container">
             <button id="theme-toggle">
               <i id="theme-icon" data-lucide="moon"></i>
@@ -30,41 +30,6 @@
               </div>
             </a>
           </div>
-        </div>
-        <div id="overflow-menu-wrapper">
-          <button
-            id="ellipsis-menu-btn"
-            aria-label="Menu"
-            title="Menu"
-            class="glass"
-          >
-            <i id="theme-icon" data-lucide="ellipsis"></i>
-          </button>
-          <ul id="overflow-menu" class="navigation-list glass">
-            <li>
-              <a href="#" aria-label="Sobre"
-                ><i id="theme-icon" data-lucide="info"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" aria-label="Projetos"
-                ><i id="theme-icon" data-lucide="folder-root"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" aria-label="Contato"
-                ><i id="theme-icon" data-lucide="contact"></i
-              ></a>
-            </li>
-            <li id="manage-projects" class="hidden">
-              <a
-                id="open-modal-project"
-                href="#"
-                aria-label="Gerenciar Projetos"
-                ><i id="theme-icon" data-lucide="chart-no-axes-gantt"></i
-              ></a>
-            </li>
-          </ul>
         </div>
       </header>
 
@@ -382,6 +347,39 @@
       <!-- FOOTER -->
       <footer></footer>
     </main>
+
+    <div id="overflow-menu-wrapper">
+      <button
+        id="ellipsis-menu-btn"
+        aria-label="Menu"
+        title="Menu"
+        class="glass"
+      >
+        <i id="theme-icon" data-lucide="ellipsis"></i>
+      </button>
+      <ul id="overflow-menu" class="navigation-list glass">
+        <li>
+          <a href="#" aria-label="Sobre"
+            ><i id="theme-icon" data-lucide="info"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" aria-label="Projetos"
+            ><i id="theme-icon" data-lucide="folder-root"></i
+          ></a>
+        </li>
+        <li>
+          <a href="#" aria-label="Contato"
+            ><i id="theme-icon" data-lucide="contact"></i
+          ></a>
+        </li>
+        <li id="manage-projects" class="hidden">
+          <a id="open-modal-project" href="#" aria-label="Gerenciar Projetos"
+            ><i id="theme-icon" data-lucide="chart-no-axes-gantt"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
 
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
