@@ -95,18 +95,49 @@ toggleThemeBtn.addEventListener("click", () => {
   lucide.createIcons();
 });
 
-// FUNÇÕES DO localStorage
-const getProjects = () => {
-  return JSON.parse(localStorage.getItem("projects")) || [];
+// ─── BANCO DE DADOS: projects.json ───────────────────────────────────────────
+//
+// Os projetos vivem em data/projects.json no repositório.
+//
+// FLUXO PARA ADICIONAR UM PROJETO:
+//   1. Faça login e abra o modal "Criar projeto"
+//   2. Preencha e clique em "Criar projeto"
+//   3. O card aparece na página E o arquivo projects.json atualizado
+//      é baixado automaticamente para o seu computador
+//   4. Substitua data/projects.json no repositório pelo arquivo baixado
+//   5. git add data/projects.json && git commit -m "add project" && git push
+//   6. Pronto — o projeto aparece no site publicado
+
+const DATA_PATH = "data/projects.json";
+
+// Lê o JSON do servidor (retorna [] se ainda não existir)
+const fetchProjects = async () => {
+  try {
+    const res = await fetch(DATA_PATH);
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
 };
 
-const saveProject = (project) => {
-  const projects = getProjects();
-  projects.push(project);
-  localStorage.setItem("projects", JSON.stringify(projects));
+// Gera e baixa o JSON com o novo projeto já incluído
+const downloadJSON = async (newProject) => {
+  const projects = await fetchProjects();
+  projects.push(newProject);
+
+  const blob = new Blob([JSON.stringify(projects, null, 2)], {
+    type: "application/json",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "projects.json";
+  a.click();
+  URL.revokeObjectURL(url);
 };
 
-// FUNÇÃO CRIAR CARD (usada tanto na criação quanto no render)
+// FUNÇÃO CRIAR CARD
 const createCard = (data) => {
   const { title, link, gitHub, imageSrc, technologies } = data;
 
@@ -149,9 +180,9 @@ const createCard = (data) => {
   lucide.createIcons();
 };
 
-// FUNÇÃO CARREGAR PROJETOS SALVOS
-const renderProjects = () => {
-  const projects = getProjects();
+// CARREGA E RENDERIZA OS PROJETOS DO JSON
+const renderProjects = async () => {
+  const projects = await fetchProjects();
   projects.forEach((project) => createCard(project));
 };
 
@@ -177,7 +208,7 @@ createProjectButton.addEventListener("click", (e) => {
   const gitHub = gitHubLink.value;
   const file = projectImage.files[0];
 
-  const handleCard = (imageSrc) => {
+  const handleCard = async (imageSrc) => {
     const project = {
       title,
       date,
@@ -187,10 +218,14 @@ createProjectButton.addEventListener("click", (e) => {
       gitHub,
       imageSrc,
     };
-    saveProject(project);
+
     createCard(project);
+    await downloadJSON(project);
+
     document.querySelector("#create-project-form").reset();
     modalProject.close();
+
+    showDownloadNotice();
   };
 
   if (file) {
@@ -201,6 +236,24 @@ createProjectButton.addEventListener("click", (e) => {
     handleCard("");
   }
 });
+
+// AVISO PÓS-DOWNLOAD — lembra o usuário de fazer push
+const showDownloadNotice = () => {
+  if (document.getElementById("json-notice")) return;
+
+  const notice = document.createElement("div");
+  notice.id = "json-notice";
+  notice.innerHTML = `
+    <strong>projects.json baixado.</strong>
+    Substitua <code>data/projects.json</code> no repositório e faça push para publicar.
+    <button id="json-notice-close" aria-label="Fechar aviso">✕</button>
+  `;
+  document.body.appendChild(notice);
+
+  document.getElementById("json-notice-close").addEventListener("click", () => {
+    notice.remove();
+  });
+};
 
 renderProjects();
 lucide.createIcons();

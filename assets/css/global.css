@@ -34,7 +34,6 @@
 
   /* BORDER COLORS */
   --divider-two: var(--color-border);
-
   --border-clear-theme: 1px solid var(--color-border-strong);
 
   /* RADIUS SCALE */
@@ -308,4 +307,52 @@ a {
 .border-blend {
   border: 1px solid rgb(0, 0, 0);
   mix-blend-mode: difference;
+}
+
+/* AVISO DE DOWNLOAD DO JSON */
+#json-notice {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  box-shadow: var(--shadow);
+  max-width: 90vw;
+}
+
+#json-notice code {
+  font-family: monospace;
+  background: var(--color-bg-secondary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--color-accent);
+}
+
+#json-notice-close {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: var(--text-md);
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+#json-notice-close:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
 }
