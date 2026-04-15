@@ -17,7 +17,7 @@
   --color-text-muted: #5a5e73;
   --color-accent: #0f6e56;
   --color-accent-dark: #085041;
-  --color-cta: #d85a30;
+  --color-cta: #ff5b00;
   --color-cta-dark: #993c1d;
   --color-border: #d3d1c7;
   --color-border-strong: #b4b2a9;
@@ -220,8 +220,9 @@ textarea::placeholder {
 button {
   height: 40px;
   width: 100%;
+  /* max-width: 200px; */
   border: none;
-  border-radius: var(--radius-button);
+  /* border-radius: var(--radius-button); */
   padding: var(--padding-button);
   font-size: var(--text-md);
   font-weight: var(--font-semibold);

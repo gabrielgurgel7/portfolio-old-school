@@ -65,7 +65,6 @@
 .navigation-list {
   display: flex;
   flex-direction: column;
-  /* padding: 8px 0 8px 0px; */
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -138,17 +137,13 @@
 
 /* GHOST PARA EFEITO IMÃ / POSICIONAMENTO DO overflow-menu-wrapper  */
 #menu-ghost {
-  /* position: fixed;
-  top: 140px; /* ajusta onde quiser */
-  /* right: 16px; */
-
   width: 46px;
   height: 46px;
 
   border-radius: 50%;
   border: 1px dashed var(--color-cta);
 
-  pointer-events: none; /* importante! */
+  pointer-events: none;
   z-index: 99;
 }
 

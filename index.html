@@ -9,40 +9,65 @@
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
-    <main class="page-content">
-      <!-- CABEÇALHO PRONCIPAL DO SITE -->
-      <header class="main-header">
-        <div class="container-navigation glass">
-          <h1>Gab.Gurgel</h1>
-          <div id="menu-ghost"></div>
-          <div class="user-container">
-            <button id="theme-toggle">
-              <i id="theme-icon" data-lucide="moon"></i>
-            </button>
+    <!-- CABEÇALHO PRONCIPAL DO SITE -->
+    <header class="main-header">
+      <div class="container-navigation glass">
+        <a href="#hero"><img src="assets/logo/logo-gab.svg" alt="" /></a>
 
-            <a id="login-link" href="#login"><i data-lucide="user"></i></a>
+        <div id="menu-ghost"></div>
 
-            <a id="user" href="#user" aria-label="Usuário on-line">
-              <div class="container-perfil">
-                <div class="photo-user">
-                  <div class="user-status"></div>
-                </div>
+        <div class="user-container">
+          <button id="theme-toggle">
+            <i id="theme-icon" data-lucide="moon"></i>
+          </button>
+
+          <a id="login-link" href="#login"><i data-lucide="user"></i></a>
+
+          <a id="user" href="#user" aria-label="Usuário on-line">
+            <div class="container-perfil">
+              <div class="photo-user">
+                <div class="user-status"></div>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
-      </header>
+      </div>
+    </header>
+
+    <main class="page-content">
       <!-- SEÇÃO HERO -->
       <section id="hero">
-        <header class="header-section">
-          <h2>
-            👋 Olá, sou o Gab, <br />
-            e esse é meu portfólio!
-          </h2>
-          <p>Sou desenvolvedor que cuida de cada detalhe do seu site</p>
+        <header id="hero-header">
+          <div id="hero-intro">
+            <div class="hero-title-row">
+              <div class="hero-greeting">
+                <h2>👋 Olá, sou</h2>
+                <img
+                  id="hero-avatar"
+                  src="assets/imgs/jpg/9A8303A1-7E71-400A-A64C-ED4437974506_1_201_a.jpeg"
+                  alt="Foto retrato de Gabriel Gurgel"
+                />
+              </div>
+              <h2>Gabriel <span>(Gab)</span> Gurgel</h2>
+            </div>
+            <div style="display: flex; flex-direction: row; gap: 24px">
+              <h2 class="hero-tagline">e esse é meu portfólio!</h2>
+              <div class="hero-status">
+                <span class="status-badge glass">
+                  <span class="status-dot"></span>
+                  Open to work
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="hero-description">
+            Sou desenvolvedor que cuida de cada detalhe do seu site
+          </p>
         </header>
         <main></main>
-        <footer></footer>
+        <footer class="hero-actions">
+          <button class="hero-cta">Book a call</button>
+        </footer>
       </section>
       <!-- SEÇÃO DE PROJETOS -->
       <section id="projects-section" class="glass">
@@ -264,8 +289,6 @@
           </footer>
         </div>
       </dialog>
-      <!-- FOOTER -->
-      <footer></footer>
     </main>
     <!-- NAVEGAÇÃO FLUTUANTE -->
     <div id="overflow-menu-wrapper">
@@ -300,6 +323,12 @@
         </li>
       </ul>
     </div>
+    <!-- FOOTER -->
+    <footer class="glass">
+      <div>
+        <p>© Gabriel Gurgel 2026</p>
+      </div>
+    </footer>
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>

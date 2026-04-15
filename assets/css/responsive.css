@@ -30,6 +30,19 @@
     gap: 16px;
   }
 
+  #hero-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #primary-presentation .container-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-md);
+  }
+
   /* GRID DE PROJETOS */
   #container-projects {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -60,6 +73,11 @@
 
 /* MOBILE  (≤ 480px) */
 @media (max-width: 480px) {
+  /* HEADER */
+  .main-header {
+    padding: 8px;
+  }
+
   /* HEADER — empilha logo + nav + ícones */
   .container-navigation {
     flex-wrap: wrap;
