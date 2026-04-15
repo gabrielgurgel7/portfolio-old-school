@@ -1,13 +1,10 @@
 /* TABLET  (≤ 768px) */
 @media (max-width: 768px) {
-  /* HEADER */
   .main-header {
     padding: 12px;
   }
 
   .container-navigation {
-    padding: 12px 16px;
-    border-radius: 64px;
     gap: 12px;
   }
 
@@ -23,29 +20,16 @@
     font-size: 16px;
   }
 
-  #hero {
-    padding: 8px;
-  }
-
   #hero-header {
     display: flex;
     flex-direction: column;
+    padding: 64px 0;
     align-items: center;
     gap: 24px;
   }
 
-  /* .hero-title-row h2 {
-    margin: 0;
-    font-size: inherit;
-    font-weight: 800;
-    color: var(--color-text);
-  } */
-
-  /* SECTION */
-  section {
-    margin: 12px;
-    padding: 16px;
-    gap: 16px;
+  .hero-status {
+    justify-content: space-between;
   }
 
   .hero-meta-row {
@@ -84,17 +68,11 @@
 
 /* MOBILE  (≤ 480px) */
 @media (max-width: 480px) {
-  /* HEADER */
-  .main-header {
-    padding: 8px;
-  }
-
   /* HEADER — empilha logo + nav + ícones */
   .container-navigation {
     flex-wrap: wrap;
     justify-content: space-between;
-    border-radius: 64px;
-    padding: 12px;
+    padding: 12px 0;
     gap: 8px;
   }
 
@@ -114,12 +92,6 @@
   /* Ícones de usuário ficam à direita do logo */
   .user-container {
     gap: 10px;
-  }
-
-  /* SECTION */
-  section {
-    margin: 8px;
-    padding: 12px;
   }
 
   /* GRID — 1 coluna em mobile */

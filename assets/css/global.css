@@ -93,7 +93,7 @@
   --font-bold: 700;
 
   /* SHADOWS */
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
   /* TRANSITIONS */
   --transitions: 0.03s;
@@ -167,10 +167,8 @@ p {
 section {
   display: flex;
   flex-direction: column;
-  margin: 24px;
-  padding: 24px;
+  margin-top: 64px;
   gap: var(--gap-lg);
-  border-radius: var(--radius-section);
 }
 
 /* INPUT (GLOBAL) */
