@@ -57,6 +57,12 @@
     0 0 0 6px #ddd;
 }
 
+.hero-meta-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
 .hero-tagline {
   margin: 0;
   font-weight: 800;
