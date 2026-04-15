@@ -40,12 +40,10 @@
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 32px;
-
-  /* RADIUS USAGE */
-  --radius-button: var(--radius-sm);
+  --radius-xl: 64px: /* RADIUS USAGE */ --radius-button: var(--radius-sm);
   --radius-input: var(--radius-sm);
   --radius-card: var(--radius-md);
-  --radius-section: var(--radius-lg);
+  --radius-section: var(--radius-xl);
 
   /* RADIUS EXCCEPT USAGE */
   --radius-top-sm: 12px 12px 0 0;
@@ -100,9 +98,16 @@
   --transitions: 0.03s;
 }
 
+@font-face {
+  font-family: "Funnel Display";
+  src: url(/assets/fonts/FunnelDisplay-Light.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ELEMENTOS (GLOBAL) */
 body {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Funnel Display";
   color: var(--color-text);
   background-color: var(--color-bg);
 }
@@ -152,10 +157,16 @@ p {
   color: var(--color-text-muted);
 }
 
+.header-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}
+
 section {
   display: flex;
   flex-direction: column;
-  margin: 0 24px 0 24px;
+  margin: 24px;
   padding: 24px;
   gap: var(--gap-lg);
   border-radius: var(--radius-section);
@@ -281,6 +292,8 @@ a {
   border: 0.5px solid var(--divider-two);
 }
 
+/* #badde3, #c89e63 */
+
 /* ESTILO VIDRO */
 .glass {
   --shadow-opacity: 0.25;
@@ -294,7 +307,6 @@ a {
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 16px;
 
   box-shadow: 0 8px 32px rgba(0, 0, 0, var(--shadow-opacity));
   transition: box-shadow 0.3s ease;
