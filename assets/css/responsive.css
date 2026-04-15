@@ -27,6 +27,20 @@
     padding: 8px;
   }
 
+  #hero-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* .hero-title-row h2 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: 800;
+    color: var(--color-text);
+  } */
+
   /* SECTION */
   section {
     margin: 12px;
