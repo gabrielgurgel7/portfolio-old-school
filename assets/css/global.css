@@ -17,8 +17,8 @@
   --color-text-muted: #5a5e73;
   --color-accent: #0f6e56;
   --color-accent-dark: #085041;
-  --color-cta: #ff5b00;
-  --color-cta-dark: #993c1d;
+  --color-cta: #69b7ce;
+  --color-cta-dark: #3f6f76;
   --color-border: #d3d1c7;
   --color-border-strong: #b4b2a9;
 
@@ -283,7 +283,7 @@ button:hover {
 
 #theme-icon,
 a {
-  color: var(--color-accent);
+  color: var(--color-cta);
   transition: var(--transitions);
 }
 
@@ -314,8 +314,7 @@ a {
 
 /* BLEND MODE */
 .texto-blend {
-  color: rgb(0, 0, 0); /* Cor do texto */
-  mix-blend-mode: screen; /* Efeito de mistura */
+  color: var(--color-cta);
 }
 
 .border-blend {

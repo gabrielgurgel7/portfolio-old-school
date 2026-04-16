@@ -29,6 +29,7 @@
 .hero-title-row {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-size: 42px;
   line-height: 1.1;
   gap: var(--gap-md);

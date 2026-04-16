@@ -1,6 +1,7 @@
 @import url(global.css);
 @import url(page-content.css);
 @import url(header.css);
+@import url(flutuant-nav.css);
 @import url(login-modal.css);
 @import url(project-manager-modal.css);
 @import url(perfil.css);

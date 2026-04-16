@@ -143,7 +143,6 @@ const createCard = (data) => {
 
   const card = document.createElement("article");
   card.classList.add("project-card");
-  card.classList.add("glass");
 
   const techItems = technologies
     ? technologies
@@ -159,7 +158,7 @@ const createCard = (data) => {
     <header class="project-header">
       <h3>${title}</h3>
       <a href="${gitHub}" target="_blank" rel="noopener noreferrer">
-        <i data-lucide="arrow-up-right"></i>
+        <i class="explorer-link" data-lucide="arrow-up-right"></i>
       </a>
     </header>
     <main>
@@ -177,6 +176,17 @@ const createCard = (data) => {
   `;
 
   document.getElementById("container-projects").appendChild(card);
+
+  if (imageSrc) {
+    const img = card.querySelector("img");
+    getDominantColor(img).then((color) => {
+      const header = card.querySelector(".project-header");
+      header.style.backgroundColor = color;
+      // opcional: ajusta a cor do texto para contrastar
+      header.style.color = "#ffffff";
+    });
+  }
+
   lucide.createIcons();
 };
 
@@ -184,6 +194,46 @@ const createCard = (data) => {
 const renderProjects = async () => {
   const projects = await fetchProjects();
   projects.forEach((project) => createCard(project));
+};
+
+// EXTRAI COR DOMINANTE DE UMA IMAGEM
+const getDominantColor = (imgElement) => {
+  return new Promise((resolve) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = 50; // escala pequena = mais rápido
+    canvas.height = 50;
+
+    const draw = () => {
+      ctx.drawImage(imgElement, 0, 0, 50, 50);
+      const data = ctx.getImageData(0, 0, 50, 50).data;
+
+      const colorMap = {};
+      for (let i = 0; i < data.length; i += 4) {
+        const r = Math.round(data[i] / 32) * 32;
+        const g = Math.round(data[i + 1] / 32) * 32;
+        const b = Math.round(data[i + 2] / 32) * 32;
+        const brightness = (r + g + b) / 3;
+
+        // Ignora cores muito claras ou muito escuras
+        if (brightness < 30 || brightness > 220) continue;
+
+        const key = `${r},${g},${b}`;
+        colorMap[key] = (colorMap[key] || 0) + 1;
+      }
+
+      const dominant = Object.entries(colorMap).sort((a, b) => b[1] - a[1])[0];
+
+      resolve(dominant ? `rgb(${dominant[0]})` : "#1d1d1d");
+    };
+
+    if (imgElement.complete) {
+      draw();
+    } else {
+      imgElement.onload = draw;
+      imgElement.onerror = () => resolve("#1d1d1d");
+    }
+  });
 };
 
 // INPUTS DO FORMULÁRIO
