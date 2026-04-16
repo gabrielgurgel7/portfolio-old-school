@@ -1,6 +1,6 @@
 #hero {
   width: calc(100% - 24px);
-  max-width: 1024px;
+  max-width: var(--maximum-page-whidth);
   margin: 0 auto;
   display: flex;
   align-items: center;

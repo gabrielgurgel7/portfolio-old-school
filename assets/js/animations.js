@@ -21,6 +21,7 @@ const MIN_DRAG_PX = 8;
 const MIN_DRAG_MS = 120;
 
 // ─── ESTADO ────────────────────────────────────────────────
+let lastScrollY = window.scrollY;
 let isDragging = false;
 let dragLocked = false;
 let isSnapped = true;
@@ -52,22 +53,33 @@ const updateShadowByDistance = (distance) => {
 };
 
 const calcSnapTarget = () => {
+  // getBoundingClientRect() do ghost é afetado pelo scroll quando o header
+  // tem position:sticky — usamos offsetTop/offsetLeft absolutos no documento
+  // para calcular onde o ghost está no espaço da página, depois convertemos
+  // para as coordenadas do sistema GSAP (que é relativo ao ponto de origem
+  // do wrapper, que é fixed).
   const ghostRect = ghost.getBoundingClientRect();
-  const wrapperRect = menuWrapper.getBoundingClientRect();
 
-  // pega o centro do botão RELATIVO ao wrapper
-  const buttonCX = ellipsisBtn.offsetLeft + ellipsisBtn.offsetWidth / 2;
-  const buttonCY = ellipsisBtn.offsetTop + ellipsisBtn.offsetHeight / 2;
-
+  // Centro do ghost em coordenadas de viewport (correto para elementos fixed)
   const ghostCX = ghostRect.left + ghostRect.width / 2;
   const ghostCY = ghostRect.top + ghostRect.height / 2;
 
+  // Centro do botão ellipsis em coordenadas de viewport
+  const buttonRect = ellipsisBtn.getBoundingClientRect();
+  const buttonCX = buttonRect.left + buttonRect.width / 2;
+  const buttonCY = buttonRect.top + buttonRect.height / 2;
+
+  // Diferença entre onde o botão está e onde o ghost está (em viewport)
+  const dx = ghostCX - buttonCX;
+  const dy = ghostCY - buttonCY;
+
+  // Aplica essa diferença às coordenadas GSAP atuais do wrapper
   const wrapperX = gsap.getProperty(menuWrapper, "x");
   const wrapperY = gsap.getProperty(menuWrapper, "y");
 
   return {
-    x: wrapperX + (ghostCX - (wrapperRect.left + buttonCX)),
-    y: wrapperY + (ghostCY - (wrapperRect.top + buttonCY)),
+    x: wrapperX + dx,
+    y: wrapperY + dy,
   };
 };
 
@@ -102,19 +114,50 @@ window.addEventListener("load", () => {
   });
 });
 
-// ─── RESIZE — re-encaixa se estava snapped ─────────────────
-window.addEventListener("resize", () => {
-  if (isSnapped) {
-    snapToGhost(false);
-    Draggable.get(menuWrapper)?.update();
-  }
-});
+// ─── SCROLL — mantém o wrapper colado ao ghost quando snapped ──
+// O ghost fica dentro do header (sticky), então sua posição
+// em viewport muda com o scroll. Sem este listener, o wrapper
+// (fixed) fica deslocado em relação ao ghost após o usuário rolar.
+window.addEventListener(
+  "scroll",
+  () => {
+    if (isSnapped) {
+      snapToGhost(false);
+      Draggable.get(menuWrapper)?.update();
+      setTimeout(() => {
+        ghost.classList.remove("active");
+      }, 100); // 👈 FORÇA sumir
+      return;
+    }
+
+    // 👇 NOVO BLOCO
+    const buttonRect = ellipsisBtn.getBoundingClientRect();
+    const ghostRect = ghost.getBoundingClientRect();
+
+    const buttonCX = buttonRect.left + buttonRect.width / 2;
+    const buttonCY = buttonRect.top + buttonRect.height / 2;
+
+    const ghostCX = ghostRect.left + ghostRect.width / 2;
+    const ghostCY = ghostRect.top + ghostRect.height / 2;
+
+    const distance = Math.hypot(ghostCX - buttonCX, ghostCY - buttonCY);
+
+    ghost.classList.toggle("active", distance < ACTIVATION_RADIUS);
+  },
+  { passive: true },
+);
 
 // ─── DRAG ──────────────────────────────────────────────────
+const margin = 16;
+
+const maxX = window.innerWidth - menuWrapper.offsetWidth - margin;
+const maxY = window.innerHeight - menuWrapper.offsetHeight - margin;
+
+this.x = Math.max(margin, Math.min(this.x, maxX));
+this.y = Math.max(margin, Math.min(this.y, maxY));
 Draggable.create(menuWrapper, {
   type: "x,y",
   edgeResistance: 0.65,
-  bounds: window,
   inertia: true,
   minimumMovement: MIN_DRAG_PX,
 
@@ -124,6 +167,8 @@ Draggable.create(menuWrapper, {
     startTime = Date.now();
     isDragging = false;
     dragLocked = false;
+
+    lastScrollY = window.scrollY;
 
     const touch = this.pointerEvent?.touches?.[0];
     startTouchY = touch ? touch.clientY : 0;
@@ -140,16 +185,25 @@ Draggable.create(menuWrapper, {
         return;
       }
     }
+    isSnapped = false;
     isDragging = true;
   },
 
   onDrag() {
     const moved = Math.hypot(this.x - startX, this.y - startY);
     const elapsed = Date.now() - startTime;
+    const scrollDelta = window.scrollY - lastScrollY;
+
+    if (scrollDelta !== 0) {
+      this.y += scrollDelta; // 👈 compensa o scroll
+      lastScrollY = window.scrollY;
+    }
 
     if (moved > MIN_DRAG_PX && elapsed > MIN_DRAG_MS) {
       dragLocked = true;
     }
+
+    // if (window.scrollY > 100) return;
 
     if (!dragLocked) return;
 
