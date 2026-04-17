@@ -1,4 +1,11 @@
-footer div {
+#main-footer div {
   display: flex;
+  justify-content: center;
   padding: 24px;
+  background-color: var(--color-cta);
+}
+
+#main-footer div p {
+  font-size: var(--text-sm);
+  color: var(--color-surface);
 }
