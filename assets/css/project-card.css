@@ -12,8 +12,9 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 24px;
-  box-shadow: none;
+  border-radius: var(--radius-card);
+  corner-shape: squircle;
+  box-shadow: var(--shadow);
   background-color: var(--color-surface);
 }
 
@@ -25,11 +26,20 @@
   padding: var(--padding-md);
   border-radius: var(--radius-project-header);
   background-color: var(--color-cta);
+  /* border: 1px dashed rgb(0, 132, 255); */
 }
 
 .explorer-link,
 .project-header h3 {
   color: #ffffff;
+  /* border: 1px dashed rgb(0, 132, 255); */
+  margin: 0;
+}
+
+.project-header h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .img-container-project {
@@ -60,6 +70,9 @@
   border-radius: var(--radius-sm);
   padding: var(--padding-tech-list);
 }
+.tech-list li p {
+  font-size: var(--text-sm);
+}
 
 .project-links {
   display: flex;
@@ -74,10 +87,13 @@
   align-items: center;
   justify-content: center;
 
-  height: 40px;
+  height: var(--height-button);
   width: 100%;
 
-  border-radius: 32px;
+  font-size: var(--text-md);
+
+  border-radius: var(--radius-button);
+  corner-shape: squircle;
 
   color: #ffffff;
   background-color: var(--color-cta);

@@ -33,7 +33,7 @@
   }
 
   .hero-status {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .hero-meta-row {

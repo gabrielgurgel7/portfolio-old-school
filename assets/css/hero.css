@@ -1,21 +1,22 @@
 #hero {
   width: calc(100% - 24px);
-  max-width: var(--maximum-page-whidth);
+  max-width: var(--maximum-page-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: var(--gap-lg);
-  /* border: 1px dashed red; */
+  /* border: 1px dashed rgb(0, 132, 255); */
 }
 
 #hero-header {
   display: flex;
+  align-items: center;
   flex-direction: row;
   padding: 64px 24px;
   gap: var(--gap-xl);
-  /* border: 1px dashed red; */
+  /* border: 1px dashed rgb(0, 255, 98); */
 }
 
 #hero-intro {
@@ -23,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   gap: var(--gap-lg);
-  /* border: 1px dashed red; */
+  /* border: 1px dashed rgb(178, 63, 255); */
 }
 
 .hero-title-row {
@@ -33,7 +34,7 @@
   font-size: 42px;
   line-height: 1.1;
   gap: var(--gap-md);
-  /* border: 1px dashed red; */
+  /* border: 1px dashed rgb(255, 230, 65); */
 }
 
 .hero-title-row h2 {
@@ -54,8 +55,15 @@
   gap: 0.4em;
 }
 
+.img-container {
+  display: flex;
+  gap: var(--gap-md);
+  /* border: 1px dashed red; */
+}
+
 #hero-avatar {
-  width: 200px;
+  width: 20rem;
+  height: 20rem;
   border-radius: var(--radius-lg);
   object-fit: cover;
   padding: 4px;
@@ -86,18 +94,19 @@
 
 .hero-description {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--text-xl);
   color: #666;
 }
 
 .status-badge {
-  height: 40px;
+  height: var(--height-button);
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-button);
+  corner-shape: squircle;
   padding: 8px 18px;
-  font-size: clamp(12px, 1.8vw, 14px);
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-muted);
   white-space: nowrap;
@@ -126,6 +135,7 @@
 }
 
 .hero-cta {
+  height: var(--height-button);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,8 +143,9 @@
   background: var(--color-cta);
   color: #fff;
   border: none;
-  border-radius: 999px;
-  font-size: clamp(14px, 2vw, 16px);
+  border-radius: var(--radius-button);
+  corner-shape: squircle;
+  font-size: var(--text-md);
   padding: var(--padding-button);
   cursor: pointer;
   box-shadow: var(--shadow);

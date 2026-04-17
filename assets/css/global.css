@@ -40,16 +40,19 @@ html {
   --divider-two: var(--color-border);
   --border-clear-theme: 1px solid var(--color-border-strong);
 
+  --height-button: 4.8rem;
+
   /* RADIUS SCALE */
   --radius-sm: 0.8rem;
   --radius-md: 1.6rem;
   --radius-lg: 3.2rem;
-  --radius-xl: 6.4rem;
+  --radius-xl: 4.2rem;
+  --radius-2xl: 6.4rem;
 
   /* RADIUS USAGE */
-  --radius-button: var(--radius-sm);
+  --radius-button: var(--radius-lg);
   --radius-input: var(--radius-sm);
-  --radius-card: var(--radius-md);
+  --radius-card: var(--radius-xl);
   --radius-section: var(--radius-xl);
 
   /* RADIUS EXCEPT USAGE */
@@ -164,7 +167,12 @@ h6 {
   color: var(--color-text);
 }
 
+h3 {
+  font-size: var(--text-xl);
+}
+
 p {
+  font-size: var(--text-xl);
   color: var(--color-text-muted);
 }
 
@@ -177,7 +185,7 @@ p {
 section {
   display: flex;
   flex-direction: column;
-  margin-top: 6.4rem;
+  margin-top: var(--margin-lg);
   gap: var(--gap-lg);
 }
 
@@ -187,7 +195,7 @@ input {
   height: 4rem;
   border: none;
   border-radius: var(--radius-input);
-  padding: 0 1.6rem 0 1.6rem;
+  padding: var(--padding-button);
   font-size: 1.6rem;
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border-strong);
@@ -227,7 +235,7 @@ textarea::placeholder {
 
 /* BOTÃO (GLOBAL) */
 button {
-  height: 2.75rem;
+  height: var(--height-button);
   width: 100%;
   border: none;
   padding: var(--padding-button);
@@ -237,6 +245,8 @@ button {
   background-color: var(--color-cta);
   color: #ffffff;
   transition: background-color 0.2s;
+  border-radius: var(--radius-button);
+  corner-shape: squircle;
 }
 
 button:hover {
