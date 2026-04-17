@@ -1,8 +1,8 @@
-#section-two {
+/* #section-two {
   width: calc(100% - 24px);
   max-width: 1024px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
   margin-top: var(--margin-xl);
   margin-bottom: var(--margin-xl);
@@ -18,11 +18,16 @@
 }
 
 .container-cards {
+  height: 20rem;
+  border: 1px dashed rgb(0, 132, 255);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--gap-md);
+  row-gap: var(--gap-md);
 }
 
 .card {
   height: 100%;
   width: 200px;
-}
+  background-color: var(--color-surface);
+} */

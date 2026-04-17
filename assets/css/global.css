@@ -52,7 +52,7 @@ html {
   /* RADIUS USAGE */
   --radius-button: var(--radius-lg);
   --radius-input: var(--radius-sm);
-  --radius-card: var(--radius-lg);
+  --radius-card: 3.6rem;
   --radius-section: var(--radius-xl);
 
   /* RADIUS EXCEPT USAGE */
@@ -381,10 +381,4 @@ a {
   padding: 2px 6px;
   border-radius: 4px;
   color: var(--color-accent);
-}
-
-.squircle-btn {
-  width: 160px;
-  height: 48px;
-  clip-path: url(#sq-btn);
 }
