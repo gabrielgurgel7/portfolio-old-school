@@ -13,7 +13,6 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: var(--radius-card);
-  corner-shape: squircle;
   box-shadow: var(--shadow);
   background-color: var(--color-surface);
 }
@@ -93,7 +92,6 @@
   font-size: var(--text-md);
 
   border-radius: var(--radius-button);
-  corner-shape: squircle;
 
   color: #ffffff;
   background-color: var(--color-cta);

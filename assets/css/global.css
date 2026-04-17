@@ -52,7 +52,7 @@ html {
   /* RADIUS USAGE */
   --radius-button: var(--radius-lg);
   --radius-input: var(--radius-sm);
-  --radius-card: var(--radius-xl);
+  --radius-card: var(--radius-lg);
   --radius-section: var(--radius-xl);
 
   /* RADIUS EXCEPT USAGE */
@@ -246,7 +246,6 @@ button {
   color: #ffffff;
   transition: background-color 0.2s;
   border-radius: var(--radius-button);
-  corner-shape: squircle;
 }
 
 button:hover {
