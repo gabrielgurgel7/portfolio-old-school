@@ -157,7 +157,7 @@ const createCard = (data) => {
   card.innerHTML = `
     <header class="project-header">
       <h3>${title}</h3>
-      <div class="elipse-container">
+      <div class="elipse-container glass">
         <a class="explorer-link" href="${gitHub}" target="_blank" rel="noopener noreferrer">
           <i data-lucide="arrow-up-right"></i>
         </a>

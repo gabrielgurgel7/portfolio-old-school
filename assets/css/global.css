@@ -158,6 +158,7 @@ a {
 
 .button-link {
   font-size: var(--text-md);
+  box-shadow: var(--shadow);
 }
 
 /* a:visited {

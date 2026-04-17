@@ -37,17 +37,12 @@
   height: var(--height-button);
   flex-shrink: 0;
   border-radius: 50%;
-  background-color: var(--color-surface);
-}
-
-.explorer-link {
-  display: flex;
-  flex-direction: row;
 }
 
 .explorer-link {
   width: 2.4rem;
   height: 2.4rem;
+  color: #ffffff;
 }
 
 .project-header h3 {

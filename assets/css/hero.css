@@ -33,14 +33,14 @@
   font-size: 42px;
   line-height: 1.1;
   gap: var(--gap-md);
-  /* border: 1px dashed rgb(255, 230, 65); */
+  /* border: 1px dashed rgb(255, 230, 65);*/
 }
 
 .hero-title-row h2 {
   margin: 0;
   font-size: inherit;
   font-weight: bold;
-  letter-spacing: -1px;
+  /* letter-spacing: -1px; */
   color: var(--color-text);
   /* border: 1px dashed red; */
 }
