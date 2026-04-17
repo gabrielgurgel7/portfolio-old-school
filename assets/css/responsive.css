@@ -24,14 +24,6 @@
     margin-top: 24px;
   }
 
-  #hero-header {
-    display: flex;
-    flex-direction: column;
-    padding: 64px 0;
-    align-items: center;
-    gap: 24px;
-  }
-
   .hero-status {
     justify-content: space-around;
   }
@@ -40,6 +32,11 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+  }
+
+  #hero-header {
+    flex-direction: column;
+    align-items: center; /* texto alinhado à esquerda */
   }
 
   .hero-title-row h2 {
