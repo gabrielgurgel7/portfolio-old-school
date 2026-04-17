@@ -382,3 +382,9 @@ a {
   border-radius: 4px;
   color: var(--color-accent);
 }
+
+.squircle-btn {
+  width: 160px;
+  height: 48px;
+  clip-path: url(#sq-btn);
+}
