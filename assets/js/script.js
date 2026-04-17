@@ -157,9 +157,11 @@ const createCard = (data) => {
   card.innerHTML = `
     <header class="project-header">
       <h3>${title}</h3>
-      <a href="${gitHub}" target="_blank" rel="noopener noreferrer">
-        <i class="explorer-link" data-lucide="arrow-up-right"></i>
-      </a>
+      <div class="elipse-container">
+        <a class="explorer-link" href="${gitHub}" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </div>
     </header>
     <main>
       <div class="img-container-project">
@@ -169,8 +171,8 @@ const createCard = (data) => {
     <footer class="project-footer">
       <ul class="tech-list">${techItems}</ul>
       <div class="project-links">
-        <a class="link-project" href="${link}" target="_blank" rel="noopener noreferrer">Link projeto</a>
-        <a class="link-project" href="${gitHub}" target="_blank" rel="noopener noreferrer">Link GitHub</a>
+        <a class="link-project button-link" href="${link}" target="_blank" rel="noopener noreferrer">Link projeto</a>
+        <a class="link-project button-link" href="${gitHub}" target="_blank" rel="noopener noreferrer">Link GitHub</a>
       </div>
     </footer>
   `;

@@ -80,6 +80,8 @@ html {
   --margin-sm: 1.2rem;
   --margin-md: 1.6rem;
   --margin-lg: 2.4rem;
+  --margin-xl: 4.8rem;
+  --margin-2xl: 6.4rem;
 
   /* TEXT COLORS */
   --text-clear-theme: black;
@@ -154,6 +156,10 @@ a {
   text-decoration: none;
 }
 
+.button-link {
+  font-size: var(--text-md);
+}
+
 /* a:visited {
   color: rgb(121, 255, 121);
 } */
@@ -164,16 +170,23 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-text);
+  color: var(--color-cta);
+}
+
+h2 {
+  font-size: var(--text-3xl);
 }
 
 h3 {
   font-size: var(--text-xl);
 }
 
+h4 {
+  font-size: var(--text-xl);
+}
+
 p {
   font-size: var(--text-xl);
-  color: var(--color-text-muted);
 }
 
 .header-section {
@@ -185,7 +198,6 @@ p {
 section {
   display: flex;
   flex-direction: column;
-  margin-top: var(--margin-lg);
   gap: var(--gap-lg);
 }
 
@@ -196,6 +208,7 @@ input {
   border: none;
   border-radius: var(--radius-input);
   padding: var(--padding-button);
+  font-family: "Funnel Display";
   font-size: 1.6rem;
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border-strong);
@@ -239,6 +252,7 @@ button {
   width: 100%;
   border: none;
   padding: var(--padding-button);
+  font-family: "Funnel Display";
   font-size: var(--text-md);
   font-weight: var(--font-semibold);
   cursor: pointer;

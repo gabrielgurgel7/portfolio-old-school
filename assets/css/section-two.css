@@ -1,0 +1,28 @@
+#section-two {
+  width: calc(100% - 24px);
+  max-width: 1024px;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: var(--margin-xl);
+  margin-bottom: var(--margin-xl);
+  border: 1px dashed rgb(0, 132, 255);
+}
+#section-two h2 {
+  text-align: left;
+  border: 1px dashed rgb(0, 132, 255);
+}
+#section-two p {
+  text-align: right;
+  border: 1px dashed rgb(0, 132, 255);
+}
+
+.container-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  height: 100%;
+  width: 200px;
+}
