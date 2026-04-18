@@ -45,7 +45,7 @@
   /* border: 1px dashed red; */
 }
 
-.hero-title-row > h2 span {
+.hero-title-row span {
   color: var(--color-cta);
 }
 

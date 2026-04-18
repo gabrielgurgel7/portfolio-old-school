@@ -2,36 +2,47 @@
   width: calc(100% - 24px);
   max-width: 1024px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
+  /* align-items: center; */
+  flex-direction: row;
   margin: 0 auto;
   margin-top: var(--margin-xl);
   margin-bottom: var(--margin-xl);
-
-  padding: var(--padding-lg);
+  /* padding: var(--padding-lg); */
+  gap: 0;
   border-radius: 3.6rem;
-  background-color: var(--color-surface);
   overflow: hidden;
+  background-color: var(--color-cta);
+  box-shadow: var(--shadow);
+}
+
+#about-me h2 {
+  width: 30rem;
+  padding: var(--padding-lg);
+  font-size: var(--text-2xl);
+  color: var(--color-surface);
   /* border: 1px dashed rgb(0, 132, 255); */
 }
-#about-me h2 {
-  font-size: 4.2rem;
-  margin: 0;
-}
+
 #about-me p {
   font-family: "Inter", sans-serif;
   font-size: 1.8rem;
   line-height: 1.5;
-  color: #000000;
-  font-weight: 300;
+  color: #9fa3b8;
+  font-weight: 500;
 }
 
 .profession-titles {
-  display: grid;
-  grid-template-columns: minmax(auto, 1fr) auto minmax(auto, 1fr);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 3.6rem;
+  padding: 2.4rem var(--padding-sm);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow);
+  /* grid-template-columns: minmax(auto, 1fr) auto minmax(auto, 1fr);
   grid-template-rows: repeat(5, minmax(200px, 1fr));
-  column-gap: var(--gap-lg);
+  column-gap: var(--gap-lg); */
+  /* border: 1px dashed rgb(0, 132, 255); */
 }
 
 .publicity,
@@ -40,17 +51,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px dashed rgb(0, 132, 255);
+  /* border: 1px dashed rgb(0, 132, 255); */
+}
+.publicity h3,
+.design h3,
+.developer h3 {
+  color: var(--color-cta);
 }
 
-.time-line {
+/* .time-line {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px dashed rgb(0, 132, 255);
-}
+  /* border: 1px dashed rgb(0, 132, 255); */
 
-.time-line-hr {
+/* .time-line-hr {
   width: 0.1rem;
   height: 100%;
   background-color: var(--color-cta);
@@ -93,86 +108,4 @@
 .box5 {
   display: flex;
   align-items: center;
-  border: 1px dashed rgb(0, 132, 255);
-}
-
-/* Adicione ao final do seu CSS existente */
-
-@media (max-width: 768px) {
-  #about-me {
-    padding: var(--padding-md);
-    border-radius: 3.6rem;
-  }
-
-  #about-me h2 {
-    font-size: 2.8rem;
-  }
-
-  #about-me p {
-    font-size: 1.6rem;
-  }
-
-  .profession-titles {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  /* Cada bloco vira um item da linha do tempo vertical */
-  .publicity,
-  .design,
-  .developer {
-    position: relative;
-    padding-left: 2.4rem;
-    padding-bottom: 3.2rem;
-    border: none;
-  }
-
-  /* Linha vertical à esquerda */
-  .publicity::before,
-  .design::before,
-  .developer::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 0.1rem;
-    height: 100%;
-    background-color: var(--color-cta);
-  }
-
-  /* Ponto na linha do tempo */
-  .publicity::after,
-  .design::after,
-  .developer::after {
-    content: "";
-    position: absolute;
-    left: -0.4rem;
-    top: 0.6rem;
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 50%;
-    background-color: var(--color-cta);
-  }
-
-  /* Remove a linha do tempo central — agora é lateral */
-  .time-line {
-    display: none;
-  }
-
-  /* Reseta os boxes para fluxo normal */
-  .box1,
-  .box2,
-  .box3,
-  .box4,
-  .box5 {
-    grid-column: unset;
-    grid-row: unset;
-    text-align: left;
-    border: none;
-  }
-
-  .box5 p {
-    text-align: left;
-  }
-}
+  /* border: 1px dashed rgb(0, 132, 255); */

@@ -22,7 +22,7 @@ html {
   --color-accent: #0f6e56;
   --color-accent-dark: #085041;
   --color-cta: #69b7ce;
-  --color-cta-dark: #3f6f76;
+  --color-cta-dark: #5b9cb0;
   --color-border: #d3d1c7;
   --color-border-strong: #b4b2a9;
 
@@ -95,7 +95,7 @@ html {
   --text-xl: 2rem;
   --text-2xl: 2.4rem;
   --text-3xl: 3.2rem;
-  --text-4xl: 4rem;
+  --text-4xl: 4.2rem;
 
   /* FONT WEIGHT SCALE */
   --font-light: 300;
@@ -136,8 +136,8 @@ body {
   --color-text-muted: #9fa3b8;
   --color-accent: #5dcaa5;
   --color-accent-dark: #1d9e75;
-  --color-cta: #f0997b;
-  --color-cta-dark: #d85a30;
+  --color-cta: #69b7ce;
+  --color-cta-dark: #5b9cb0;
   --color-border: #2c3147;
   --color-border-strong: #4a4f70;
   background-color: var(--color-bg);
@@ -171,7 +171,12 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-cta);
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  color: var();
 }
 
 h2 {
@@ -179,11 +184,7 @@ h2 {
 }
 
 h3 {
-  font-size: var(--text-xl);
-}
-
-h4 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
 }
 
 p {
