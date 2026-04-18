@@ -1,0 +1,26 @@
+#about-me {
+  width: calc(100% - 24px);
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: var(--margin-xl);
+  margin-bottom: var(--margin-xl);
+  background-color: #232323;
+  padding: var(--padding-lg);
+  border-radius: 3.6rem;
+  /* border: 1px dashed rgb(0, 132, 255); */
+}
+#about-me h2 {
+  font-size: 6.4rem;
+}
+#about-me p {
+  width: 30%;
+  font-family: "Inter", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #ffffff;
+  font-weight: 300;
+}

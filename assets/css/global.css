@@ -263,9 +263,9 @@ button {
   border-radius: var(--radius-button);
 }
 
-button:hover {
+/* button:hover {
   background-color: var(--color-cta-dark);
-}
+} */
 
 /* BOTÃO PRIMÁRIO */
 .primary-button {
@@ -275,6 +275,15 @@ button:hover {
 
 .primary-button:hover {
   background-color: var(--color-accent-dark);
+}
+
+/* BOTÃO CURTIR */
+.joy-button {
+  padding: 0;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  background: none;
 }
 
 /* BOTÃO FECHAR (GLOBAL) */

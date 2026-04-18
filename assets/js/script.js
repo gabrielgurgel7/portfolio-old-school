@@ -158,7 +158,7 @@ const createCard = (data) => {
     <header class="project-header">
       <h3>${title}</h3>
       <div class="elipse-container glass">
-        <a class="explorer-link" href="${gitHub}" target="_blank" rel="noopener noreferrer">
+        <a class="explorer-link" href="${link}" target="_blank" rel="noopener noreferrer">
           <i data-lucide="arrow-up-right"></i>
         </a>
       </div>
@@ -171,7 +171,14 @@ const createCard = (data) => {
     <footer class="project-footer">
       <ul class="tech-list">${techItems}</ul>
       <div class="project-links">
-        <a class="link-project button-link" href="${link}" target="_blank" rel="noopener noreferrer">Link projeto</a>
+        <div class="interactive-btns">
+        <button class="joy-button">
+          <i id="theme-icon" data-lucide="thumbs-up"></i>
+        </button>
+        <button class="joy-button">
+          <i id="theme-icon" data-lucide="message-circle"></i>
+        </button>
+      </div>
         <a class="link-project button-link" href="${gitHub}" target="_blank" rel="noopener noreferrer">Link GitHub</a>
       </div>
     </footer>

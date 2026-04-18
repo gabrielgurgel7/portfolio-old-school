@@ -76,17 +76,18 @@
 }
 
 .tech-list li {
-  border: 1px solid var(--color-cta);
+  border: 2px solid var(--color-cta);
   border-radius: var(--radius-sm);
   padding: var(--padding-tech-list);
 }
 .tech-list li p {
   font-size: var(--text-sm);
+  font-weight: 800;
 }
 
 .project-links {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: var(--gap-sm);
   /* border: 1px dashed red; */
   padding: 0;
@@ -98,9 +99,8 @@
   justify-content: center;
 
   height: var(--height-button);
-  width: 100%;
-
   font-size: var(--text-md);
+  padding: var(--padding-button);
 
   border-radius: var(--radius-button);
 
@@ -118,4 +118,8 @@
   flex-direction: column;
   gap: var(--gap-md);
   padding: var(--padding-sm);
+}
+
+.interactive-btns {
+  display: flex;
 }
