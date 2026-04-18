@@ -82,7 +82,7 @@
 .tech-list li p {
   color: #9fa3b8;
   font-size: var(--text-sm);
-  font-weight: 800;
+  font-weight: 300;
 }
 
 .explore-project {

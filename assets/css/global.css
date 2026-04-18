@@ -22,7 +22,7 @@ html {
   --color-accent: #0f6e56;
   --color-accent-dark: #085041;
   --color-cta: #69b7ce;
-  --color-cta-dark: #5b9cb0;
+  --color-cta-dark: #3f6f76;
   --color-border: #d3d1c7;
   --color-border-strong: #b4b2a9;
 
@@ -115,15 +115,16 @@ html {
 }
 
 @font-face {
-  font-family: "Funnel Display";
+  font-family: "Funnel Display", sans-serif;
   src: url(../fonts/FunnelDisplay-VariableFont_wght.ttf);
-  font-weight: normal;
+  font-optical-sizing: auto;
+  font-weight: weight;
   font-style: normal;
 }
 
 /* ELEMENTOS (GLOBAL) */
 body {
-  font-family: "Funnel Display";
+  font-family: "Funnel Display", sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
 }
@@ -254,9 +255,9 @@ button {
   width: 100%;
   border: none;
   padding: var(--padding-button);
-  font-family: "Funnel Display";
+  font-family: "Funnel Display", sans-serif;
   font-size: var(--text-md);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-bold);
   cursor: pointer;
   background-color: var(--color-cta);
   color: #ffffff;

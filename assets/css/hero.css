@@ -145,6 +145,7 @@
   cursor: pointer;
   box-shadow: var(--shadow);
   transition: background 0.2s;
+  font-weight: 300t;
 }
 
 .hero-cta:hover {
