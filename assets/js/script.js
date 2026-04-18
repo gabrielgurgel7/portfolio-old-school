@@ -158,7 +158,12 @@ const createCard = (data) => {
     <header class="project-header">
       <h3>${title}</h3>
       <div class="elipse-container glass">
-        <a class="explorer-link" href="${link}" target="_blank" rel="noopener noreferrer">
+        <a
+          class="explorer-link"
+          href="${link}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i data-lucide="arrow-up-right"></i>
         </a>
       </div>
@@ -179,7 +184,15 @@ const createCard = (data) => {
           <i id="theme-icon" data-lucide="message-circle"></i>
         </button>
       </div>
-        <a class="link-project button-link" href="${gitHub}" target="_blank" rel="noopener noreferrer">Link GitHub</a>
+      <div class="explore-project">
+        <a
+          class="link-project button-link"
+          href="${gitHub}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+        
       </div>
     </footer>
   `;

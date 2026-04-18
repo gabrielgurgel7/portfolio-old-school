@@ -15,7 +15,6 @@
   border-radius: var(--radius-card);
   box-shadow: var(--shadow);
   background-color: var(--color-surface);
-  clip-path: url(#sq-card);
 }
 
 .project-header {
@@ -76,13 +75,18 @@
 }
 
 .tech-list li {
-  border: 2px solid var(--color-cta);
+  border: 1px solid #9fa3b8;
   border-radius: var(--radius-sm);
   padding: var(--padding-tech-list);
 }
 .tech-list li p {
+  color: #9fa3b8;
   font-size: var(--text-sm);
   font-weight: 800;
+}
+
+.explore-project {
+  display: flex;
 }
 
 .project-links {
@@ -101,16 +105,16 @@
   height: var(--height-button);
   font-size: var(--text-md);
   padding: var(--padding-button);
-
+  border: 1px solid var(--color-cta);
   border-radius: var(--radius-button);
-
-  color: #ffffff;
-  background-color: var(--color-cta);
+  box-shadow: none;
+  color: var(--color-cta);
   transition: background-color 0.2s;
 }
 
 .project-links a:hover {
-  background-color: var(--color-cta-dark);
+  color: #ffffff;
+  background-color: var(--color-cta);
 }
 
 .project-footer {
@@ -118,6 +122,7 @@
   flex-direction: column;
   gap: var(--gap-md);
   padding: var(--padding-sm);
+  /* border: 1px dashed rgb(0, 132, 255); */
 }
 
 .interactive-btns {
