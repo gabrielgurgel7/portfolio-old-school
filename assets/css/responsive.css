@@ -63,6 +63,23 @@
     /* border: 1px dashed rgb(0, 132, 255); */
   }
 
+  /* .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5 p {
+    text-align: left;
+    font-size: var(--text-md);
+  }
+  .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5 h2 {
+    text-align: left;
+    font-size: var(--text-xl);
+  } */
+
   /* MODAL DE CRIAR PROJETO — fieldset vira 1 coluna */
   #create-project-form fieldset {
     grid-template-columns: 1fr;

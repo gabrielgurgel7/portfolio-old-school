@@ -4,23 +4,175 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
   margin-top: var(--margin-xl);
   margin-bottom: var(--margin-xl);
-  background-color: #232323;
+
   padding: var(--padding-lg);
   border-radius: 3.6rem;
+  background-color: var(--color-surface);
+  overflow: hidden;
   /* border: 1px dashed rgb(0, 132, 255); */
 }
 #about-me h2 {
   font-size: 4.2rem;
+  margin: 0;
 }
 #about-me p {
-  width: 30%;
   font-family: "Inter", sans-serif;
   font-size: 1.8rem;
   line-height: 1.5;
-  color: #ffffff;
+  color: #000000;
   font-weight: 300;
+}
+
+.profession-titles {
+  display: grid;
+  grid-template-columns: minmax(auto, 1fr) auto minmax(auto, 1fr);
+  grid-template-rows: repeat(5, minmax(200px, 1fr));
+  column-gap: var(--gap-lg);
+}
+
+.publicity,
+.design,
+.developer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px dashed rgb(0, 132, 255);
+}
+
+.time-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgb(0, 132, 255);
+}
+
+.time-line-hr {
+  width: 0.1rem;
+  height: 100%;
+  background-color: var(--color-cta);
+  border: none;
+}
+
+.box1,
+.box2,
+.box3,
+.box4,
+.box5 p {
+  text-align: center;
+}
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 0;
+}
+
+.box2 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+  grid-row-end: 0;
+}
+
+.box3 {
+  grid-column-start: 1;
+  grid-row-start: 4;
+  grid-row-end: 0;
+}
+
+.box4 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.box5 {
+  display: flex;
+  align-items: center;
+  border: 1px dashed rgb(0, 132, 255);
+}
+
+/* Adicione ao final do seu CSS existente */
+
+@media (max-width: 768px) {
+  #about-me {
+    padding: var(--padding-md);
+    border-radius: 3.6rem;
+  }
+
+  #about-me h2 {
+    font-size: 2.8rem;
+  }
+
+  #about-me p {
+    font-size: 1.6rem;
+  }
+
+  .profession-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Cada bloco vira um item da linha do tempo vertical */
+  .publicity,
+  .design,
+  .developer {
+    position: relative;
+    padding-left: 2.4rem;
+    padding-bottom: 3.2rem;
+    border: none;
+  }
+
+  /* Linha vertical à esquerda */
+  .publicity::before,
+  .design::before,
+  .developer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.1rem;
+    height: 100%;
+    background-color: var(--color-cta);
+  }
+
+  /* Ponto na linha do tempo */
+  .publicity::after,
+  .design::after,
+  .developer::after {
+    content: "";
+    position: absolute;
+    left: -0.4rem;
+    top: 0.6rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background-color: var(--color-cta);
+  }
+
+  /* Remove a linha do tempo central — agora é lateral */
+  .time-line {
+    display: none;
+  }
+
+  /* Reseta os boxes para fluxo normal */
+  .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5 {
+    grid-column: unset;
+    grid-row: unset;
+    text-align: left;
+    border: none;
+  }
+
+  .box5 p {
+    text-align: left;
+  }
 }
