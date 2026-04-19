@@ -1,12 +1,6 @@
 #my-experiences {
-  display: flex;
   flex-direction: row;
   gap: 16px;
-  width: calc(100% - 24px);
-  max-width: 1024px;
-  margin: 0 auto;
-  margin-top: 2.4rem;
-  margin-bottom: 2.4rem;
 }
 .article-wrapper {
   border-radius: 3.6rem;
@@ -32,18 +26,9 @@
   margin-bottom: 24px;
 }
 
-#my-experiences header .badge {
-  display: inline-block;
-  border-radius: 24px;
-  padding: 6px 14px;
-  box-shadow: var(--shadow);
-  border: 1px dashed var(--color-cta);
-}
-
 #my-experiences header h2 {
   margin: 0;
   font-size: 16px;
-  font-weight: 500;
   color: var(--color-cta);
 }
 

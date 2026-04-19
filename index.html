@@ -10,7 +10,7 @@
   </head>
   <body>
     <!-- CABEÇALHO PRONCIPAL DO SITE -->
-    <header class="main-header">
+    <header class="main-header backdrop-blur">
       <div class="container-navigation">
         <a href="#hero"><img src="assets/logo/logo-gab.svg" alt="" /></a>
 
@@ -24,9 +24,9 @@
           <a id="login-link" href="#login"><i data-lucide="user"></i></a>
 
           <a id="user" href="#user" aria-label="Usuário on-line">
-            <div class="container-perfil">
-              <div class="photo-user">
-                <div class="user-status"></div>
+            <div class="container-perfil circle">
+              <div class="photo-user circle">
+                <div class="user-status circle"></div>
               </div>
             </div>
           </a>
@@ -63,7 +63,7 @@
                 <span class="status-dot"></span>
                 Open to works
               </span>
-              <a href="#about-me" class="hero-cta button-link squircle"
+              <a href="#about-me" class="hero-cta button-link flex-center"
                 >+ sobre mim</a
               >
             </div>
@@ -202,10 +202,10 @@
 
       <!-- MODAL DE LOGIN -->
       <dialog id="login" aria-labelledby="login-title" class="glass">
-        <header class="modal-login-inner">
+        <header class="modal-login-inner flex-center">
           <h2 id="login-title">Login</h2>
-          <button class="close-button" aria-label="Fechar" id="close-login">
-            <i data-lucide="x"></i>
+          <button class="close-button flex-center circle" aria-label="Fechar" id="close-login">
+            <i class="icon-md" data-lucide="x"></i>
           </button>
         </header>
         <main>
@@ -273,7 +273,7 @@
               aria-label="Fechar"
               id="close-modal-project"
             >
-              <i data-lucide="x"></i>
+              <i class="icon-md" data-lucide="x"></i>
             </button>
           </header>
           <hr class="divider" />
@@ -417,28 +417,28 @@
         id="ellipsis-menu-btn"
         aria-label="Menu"
         title="Menu"
-        class="glass"
+        class="glass flex-center circle"
       >
-        <i id="theme-icon" data-lucide="ellipsis"></i>
+        <i id="theme-icon" class="icon-md" data-lucide="ellipsis"></i>
       </button>
       <ul id="overflow-menu" class="navigation-list glass">
         <li>
-          <a href="#" aria-label="Sobre"
+          <a href="#" aria-label="Sobre" class="circle"
             ><i id="theme-icon" data-lucide="info"></i
           ></a>
         </li>
         <li>
-          <a href="#" aria-label="Projetos"
+          <a href="#" aria-label="Projetos" class="circle"
             ><i id="theme-icon" data-lucide="folder-root"></i
           ></a>
         </li>
         <li>
-          <a href="#" aria-label="Contato"
+          <a href="#" aria-label="Contato" class="circle"
             ><i id="theme-icon" data-lucide="contact"></i
           ></a>
         </li>
         <li id="manage-projects" class="hidden">
-          <a id="open-modal-project" href="#" aria-label="Gerenciar Projetos"
+          <a id="open-modal-project" href="#" aria-label="Gerenciar Projetos" class="circle"
             ><i id="theme-icon" data-lucide="chart-no-axes-gantt"></i
           ></a>
         </li>

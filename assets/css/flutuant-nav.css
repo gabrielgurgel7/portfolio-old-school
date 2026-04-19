@@ -25,12 +25,8 @@
 
 #ellipsis-menu-btn {
   top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
 }
 #ellipsis-menu-btn:hover {
   background: rgba(0, 0, 0, 0.06);
@@ -39,9 +35,6 @@
 
 #ellipsis-menu-btn i,
 #ellipsis-menu-btn svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
   color: var(--color-cta);
 }
 
@@ -57,7 +50,6 @@
 .navigation-list a {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
   align-items: center;
   justify-content: center;
   text-decoration: none;

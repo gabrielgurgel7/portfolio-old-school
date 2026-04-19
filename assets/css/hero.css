@@ -1,11 +1,6 @@
 #hero {
-  width: calc(100% - 24px);
-  max-width: 1024px;
-  margin: 0 auto;
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   gap: var(--gap-lg);
 }
 
@@ -134,9 +129,6 @@
 
 .hero-cta {
   height: var(--height-button);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   max-width: 200px;
   background: var(--color-cta);
   color: #fff;
@@ -145,7 +137,7 @@
   padding: var(--padding-button);
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: background 0.2s;
+  transition: var(--transition-hover);
   font-weight: 300t;
 }
 

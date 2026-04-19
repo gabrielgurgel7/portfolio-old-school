@@ -29,13 +29,9 @@
 }
 
 .elipse-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: var(--height-button);
   height: var(--height-button);
   flex-shrink: 0;
-  border-radius: 50%;
 }
 
 .explorer-link {
@@ -90,7 +86,6 @@
 }
 
 .project-links {
-  display: flex;
   justify-content: space-between;
   gap: var(--gap-sm);
   /* border: 1px dashed red; */
@@ -98,10 +93,6 @@
 }
 
 .project-links .link-project {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   height: var(--height-button);
   font-size: var(--text-md);
   padding: var(--padding-button);
@@ -109,7 +100,7 @@
   border-radius: var(--radius-button);
   box-shadow: none;
   color: var(--color-cta);
-  transition: background-color 0.2s;
+  transition: var(--transition-hover);
 }
 
 .project-links a:hover {

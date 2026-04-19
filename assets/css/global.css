@@ -112,6 +112,7 @@ html {
 
   /* TRANSITIONS */
   --transitions: 0.03s;
+  --transition-hover: background-color 0.2s ease;
 }
 
 @font-face {
@@ -201,7 +202,18 @@ p {
 section {
   display: flex;
   flex-direction: column;
+  width: calc(100% - 24px);
+  max-width: 1024px;
+  margin: 0 auto;
+  margin-top: var(--gap-lg);
+  margin-bottom: var(--gap-lg);
   gap: var(--gap-lg);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* INPUT (GLOBAL) */
@@ -255,13 +267,12 @@ button {
   width: 100%;
   border: none;
   padding: var(--padding-button);
-  font-family: "Funnel Display", sans-serif;
   font-size: var(--text-md);
   font-weight: var(--font-bold);
   cursor: pointer;
   background-color: var(--color-cta);
   color: #ffffff;
-  transition: background-color 0.2s;
+  transition: var(--transition-hover);
   border-radius: var(--radius-button);
 }
 
@@ -284,24 +295,17 @@ button {
   padding: 0;
   width: 4.8rem;
   height: 4.8rem;
-  border-radius: 50%;
   background: none;
 }
 
 /* BOTÃO FECHAR (GLOBAL) */
 .close-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   background: transparent;
   color: var(--color-text);
   width: 4.2rem;
   height: 4.2rem;
-  border-radius: 50%;
 }
 
-.close-button i,
 .close-button svg {
   width: 2.4rem;
   height: 2.4rem;
@@ -328,6 +332,16 @@ button {
 a {
   color: var(--color-cta);
   transition: var(--transitions);
+}
+
+.icon-md {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex-shrink: 0;
+}
+
+.circle {
+  border-radius: 50%;
 }
 
 .divider {
@@ -393,4 +407,18 @@ a {
   padding: 2px 6px;
   border-radius: 4px;
   color: var(--color-accent);
+}
+
+/* BACKDROP BLUR */
+.backdrop-blur {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 24px;
+  padding: 6px 14px;
+  border: 1px dashed var(--color-cta);
+  box-shadow: var(--shadow);
 }
