@@ -117,7 +117,7 @@ html {
 
 @font-face {
   font-family: "Funnel Display", sans-serif;
-  src: url(../fonts/FunnelDisplay-VariableFont_wght.ttf);
+  src: url(assets/fonts/funnel.ttf);
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
@@ -162,10 +162,6 @@ a {
   font-size: var(--text-md);
   box-shadow: var(--shadow);
 }
-
-/* a:visited {
-  color: rgb(121, 255, 121);
-} */
 
 h1,
 h2,
