@@ -116,10 +116,10 @@ html {
 }
 
 @font-face {
-  font-family: "Funnel Display", sans-serif;
-  src: url(assets/fonts/funnel.ttf);
+  font-family: "Funnel Display";
+  src: url(../fonts/funnel.ttf) format("truetype");
   font-optical-sizing: auto;
-  font-weight: weight;
+  font-weight: 100 800;
   font-style: normal;
 }
 
