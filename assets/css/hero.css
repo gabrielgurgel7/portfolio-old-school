@@ -31,7 +31,7 @@
   /* border: 1px dashed rgb(255, 230, 65);*/
 }
 
-.hero-title-row h2 {
+.hero-title-row h1 {
   margin: 0;
   font-size: inherit;
   font-weight: bold;
@@ -143,4 +143,45 @@
 
 .hero-cta:hover {
   background: var(--color-cta-dark);
+}
+
+.highlight-text {
+  position: relative;
+  display: inline-flex;
+  border-left: 2px solid #1c88d3;
+  border-right: 2px solid #1c88d3;
+}
+
+/* Fundo highlight + pontos via highlight-inner */
+.highlight-inner {
+  position: relative;
+  background-color: #1c87d33a;
+  padding: 2px 6px;
+  display: inline;
+  z-index: 0;
+}
+
+/* Bolinhas  */
+.highlight-inner::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  background-color: #1c88d3;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.highlight-inner::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  right: -7px;
+  width: 12px;
+  height: 12px;
+  background-color: #1c88d3;
+  border-radius: 50%;
+  z-index: 1;
 }
