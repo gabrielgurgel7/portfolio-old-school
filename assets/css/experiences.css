@@ -1,6 +1,6 @@
 #my-experiences {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(244px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(322.66px, 1fr));
   gap: 16px;
 }
 .article-wrapper {
