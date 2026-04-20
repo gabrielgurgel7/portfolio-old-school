@@ -145,43 +145,43 @@
   background: var(--color-cta-dark);
 }
 
-.highlight-text {
-  position: relative;
-  display: inline-flex;
-  border-left: 2px solid #1c88d3;
-  border-right: 2px solid #1c88d3;
-}
-
-/* Fundo highlight + pontos via highlight-inner */
-.highlight-inner {
-  position: relative;
+.hl {
+  display: inline-block;
   background-color: #1c87d33a;
-  padding: 2px 6px;
-  display: inline;
-  z-index: 0;
+  padding: 2px 8px;
+  position: relative;
+  border-left: 2px solid #1c88d3; /* barra esquerda em todos */
 }
 
-/* Bolinhas  */
-.highlight-inner::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: -7px;
-  width: 12px;
-  height: 12px;
-  background-color: #1c88d3;
-  border-radius: 50%;
-  z-index: 1;
+.hl:first-of-type {
+  border-right: none; /* sem barra direita no primeiro */
 }
 
-.highlight-inner::after {
+.hl:last-of-type {
+  border-left: none; /* sem barra esquerda no último */
+  border-right: 2px solid #1c88d3; /* barra direita só no último */
+}
+
+/* Ponto só no primeiro span */
+.hl:first-of-type::before {
   content: "";
   position: absolute;
-  bottom: -12px;
-  right: -7px;
-  width: 12px;
-  height: 12px;
-  background-color: #1c88d3;
+  top: -6px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  background: #1c88d3;
   border-radius: 50%;
-  z-index: 1;
+}
+
+/* Ponto só no último span */
+.hl:last-of-type::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  background: #1c88d3;
+  border-radius: 50%;
 }
