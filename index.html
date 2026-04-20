@@ -29,31 +29,19 @@
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
-    <!-- CABEÇALHO PRONCIPAL DO SITE -->
+    <!-- CABEÇALHO PRONCIPAL -->
     <header class="main-header backdrop-blur">
       <div class="container-navigation">
         <a href="#hero"><img src="assets/logo/logo-gab.svg" alt="" /></a>
-
-        <div id="menu-ghost" class="circle"></div>
-
         <div class="user-container">
           <button id="theme-toggle">
             <i id="theme-icon" data-lucide="moon"></i>
           </button>
-
-          <a id="login-link" href="#login"><i data-lucide="user"></i></a>
-
-          <a id="user" href="#user" aria-label="Usuário on-line">
-            <div class="container-perfil circle">
-              <div class="photo-user circle">
-                <div class="user-status circle"></div>
-              </div>
-            </div>
-          </a>
+          <div id="menu-ghost" class="circle"></div>
         </div>
       </div>
     </header>
-
+    <!-- CONTEÚDO DA PÁGINA -->
     <main class="page-content">
       <!-- SEÇÃO HERO -->
       <section id="hero">
@@ -86,7 +74,7 @@
         </div>
       </section>
       <section id="my-experiences">
-        <div class="article-wrapper glass">
+        <div class="article-wrapper">
           <article>
             <header>
               <span class="badge glass"><h2>Experiências</h2></span>
@@ -115,7 +103,7 @@
             </main>
           </article>
         </div>
-        <div class="article-wrapper glass">
+        <div class="article-wrapper">
           <article>
             <header>
               <span class="badge glass"><h2>Skills</h2></span>
@@ -144,22 +132,7 @@
             </main>
           </article>
         </div>
-        <div class="article-wrapper glass about-me-gab">
-          <article>
-            <header>
-              <h2>Quem é o Gab?</h2>
-            </header>
-            <main>
-              <img src="assets/imgs/png/avatar-gab-gurgel-pensativo@2x.png" alt="" />
-            </main>
-            <footer>
-              <a href="#about-me" class="hero-cta button-link flex-center"
-                >+ sobre mim</a
-              >
-            </footer>
-          </article>
-        </div>
-        <div class="article-wrapper glass">
+        <div class="article-wrapper">
           <article>
             <header>
               <span class="badge glass"><h2>Tecnologias</h2></span>
@@ -187,38 +160,19 @@
             </main>
           </article>
         </div>
-      </section>
-      <!-- SEÇÃO SOBRE MIM -->
-      <!-- <section id="about-me">
-        <div class="profession-titles">
-          <div class="publicity box1">
-            <h3>Publicitário</h3>
-            <p><small>Iniciei minha jornada estudando publicidade</small></p>
-          </div>
-          <div class="design box2">
-            <h3>Designer</h3>
-            <p><small>Atuei mais de 5 anos como designer gráfico</small></p>
-          </div>
-          <div class="developer box3">
-            <h3>UX/UI & Front-end</h3>
-            <p>
-              <small
-                >Hoje atuo como UX/UI Designer e desenvolvedor front-end</small
+        <div class="article-wrapper about-me-gab">
+          <article class="gab-article">
+            <main>
+              <img src="assets/imgs/png/avt_gab_pensativo.png" alt="" />
+            </main>
+            <footer>
+              <a href="#about-me" class="hero-cta button-link flex-center"
+                >Quem é o Gab?</a
               >
-            </p>
-          </div>
-          <div class="time-line box4">
-            <hr class="time-line-hr" />
-          </div>
+            </footer>
+          </article>
         </div>
-        <div class="box5">
-          <h2>
-            Não é uma lista de profissões <br />
-            — é uma linha do tempo de como aprendi a resolver o mesmo problema
-            cada vez mais fundo.
-          </h2>
-        </div>
-      </section> -->
+      </section>
       <!-- SEÇÃO DE PROJETOS -->
       <section id="projects-section">
         <header>
@@ -227,221 +181,6 @@
         <main id="container-projects"></main>
         <footer></footer>
       </section>
-
-      <!-- MODAL DE LOGIN -->
-      <dialog id="login" aria-labelledby="login-title" class="glass">
-        <header class="modal-login-inner flex-center">
-          <h2 id="login-title">Login</h2>
-          <button
-            class="close-button flex-center circle"
-            aria-label="Fechar"
-            id="close-login"
-          >
-            <i class="icon-md" data-lucide="x"></i>
-          </button>
-        </header>
-        <main>
-          <form action="/login" method="POST" id="login-form" novalidate>
-            <div class="field">
-              <label for="login-user">Usuário</label>
-              <input
-                type="text"
-                name="login-user"
-                id="login-user"
-                placeholder="Seu usuário"
-                autocomplete="username"
-                required
-                aria-required="true"
-              />
-            </div>
-
-            <div class="field">
-              <label for="login-password">Senha</label>
-              <input
-                type="password"
-                name="login-password"
-                id="login-password"
-                placeholder="Sua senha"
-                autocomplete="current-password"
-                required
-                aria-required="true"
-              />
-            </div>
-
-            <a href="#forgot-password" class="forgot-password">
-              <small>Esqueceu sua senha?</small>
-            </a>
-
-            <div class="login-buttons">
-              <button type="button" class="register-button">Registre-se</button>
-              <button type="submit" class="login-button primary-button">
-                Entrar
-              </button>
-            </div>
-          </form>
-        </main>
-        <hr class="divider" />
-        <footer class="legal-text">
-          <p class="cheklist-terms">
-            <small>
-              Ao realizar o login, você concorda com nossos <br />
-              <a href="#use-terms">Termos de Uso</a> e
-              <a href="#privacy-policy">Política de Privacidade</a>.
-            </small>
-          </p>
-        </footer>
-      </dialog>
-      <!-- MODAL DE CRIAR PROJETO -->
-      <dialog
-        id="modal-create-project"
-        aria-labelledby="modal-project-title"
-        class="glass"
-      >
-        <div class="modal-project-inner">
-          <header class="modal-project-header">
-            <h2 id="modal-project-title">Criar projeto</h2>
-            <button
-              class="close-button"
-              aria-label="Fechar"
-              id="close-modal-project"
-            >
-              <i class="icon-md" data-lucide="x"></i>
-            </button>
-          </header>
-          <hr class="divider" />
-          <main class="modal-project-main">
-            <form
-              id="create-project-form"
-              action="/projects"
-              method="POST"
-              enctype="multipart/form-data"
-              novalidate
-            >
-              <fieldset>
-                <legend class="sr-only">Informações do projeto</legend>
-
-                <div class="field">
-                  <label for="project-title"
-                    >Título <span aria-hidden="true">*</span></label
-                  >
-                  <input
-                    type="text"
-                    name="project-title"
-                    id="project-title"
-                    placeholder="Ex: Portfolio pessoal"
-                    autocomplete="off"
-                    required
-                    aria-required="true"
-                  />
-                </div>
-
-                <div class="field">
-                  <label for="creation-date"
-                    >Data de criação <span aria-hidden="true">*</span></label
-                  >
-                  <input
-                    type="date"
-                    name="creation-date"
-                    id="creation-date"
-                    required
-                    aria-required="true"
-                  />
-                </div>
-
-                <div class="field field--full">
-                  <label for="description"
-                    >Descrição <span aria-hidden="true">*</span></label
-                  >
-                  <textarea
-                    name="description"
-                    id="description"
-                    rows="4"
-                    placeholder="Objetivo, contexto e diferenciais do projeto"
-                    required
-                    aria-required="true"
-                    aria-describedby="description-hint"
-                  ></textarea>
-                  <small id="description-hint">Mínimo de 20 caracteres.</small>
-                </div>
-
-                <div class="field">
-                  <label for="technologies"
-                    >Tecnologias <span aria-hidden="true">*</span></label
-                  >
-                  <input
-                    type="text"
-                    name="technologies"
-                    id="technologies"
-                    placeholder="Ex: HTML, CSS, JS"
-                    autocomplete="off"
-                    required
-                    aria-required="true"
-                    aria-describedby="technologies-hint"
-                  />
-                  <small id="technologies-hint">Separe por vírgula.</small>
-                </div>
-
-                <div class="field">
-                  <label for="project-image">Imagem</label>
-                  <input
-                    type="file"
-                    name="project-image"
-                    id="project-image"
-                    accept="image/png, image/jpeg, image/webp"
-                    aria-describedby="project-image-hint"
-                  />
-                  <small id="project-image-hint"
-                    >PNG, JPEG ou WebP. Máx. 2MB.</small
-                  >
-                </div>
-
-                <div class="field">
-                  <label for="link-project">Link do projeto</label>
-                  <input
-                    type="url"
-                    name="link-project"
-                    id="link-project"
-                    placeholder="https://meu-projeto.com"
-                    autocomplete="off"
-                  />
-                </div>
-
-                <div class="field">
-                  <label for="link-github">Link do GitHub</label>
-                  <input
-                    type="url"
-                    name="link-github"
-                    id="link-github"
-                    placeholder="https://github.com/usuario/repo"
-                    autocomplete="off"
-                  />
-                </div>
-              </fieldset>
-              <div class="form-actions">
-                <button type="reset">Limpar</button>
-                <button
-                  id="create-project-btn"
-                  type="submit"
-                  class="primary-button"
-                >
-                  Criar projeto
-                </button>
-              </div>
-            </form>
-          </main>
-          <hr class="divider" />
-
-          <footer class="legal-text">
-            <p class="cheklist-terms">
-              <small>
-                Ao criar o projeto, você concorda com nossos <br />
-                <a href="#use-terms">Termos de Uso</a> e
-                <a href="#privacy-policy">Política de Privacidade</a>.
-              </small>
-            </p>
-          </footer>
-        </div>
-      </dialog>
     </main>
     <!-- NAVEGAÇÃO FLUTUANTE -->
     <div id="overflow-menu-wrapper">
@@ -469,15 +208,6 @@
             ><i id="theme-icon" data-lucide="contact"></i
           ></a>
         </li>
-        <li id="manage-projects" class="hidden">
-          <a
-            id="open-modal-project"
-            href="#"
-            aria-label="Gerenciar Projetos"
-            class="circle"
-            ><i id="theme-icon" data-lucide="chart-no-axes-gantt"></i
-          ></a>
-        </li>
       </ul>
     </div>
     <!-- FOOTER -->
@@ -486,7 +216,6 @@
         <p>© Gabriel Gurgel 2026</p>
       </div>
     </footer>
-
     <!-- SCRIPTS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>

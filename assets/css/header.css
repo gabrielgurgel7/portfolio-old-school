@@ -20,7 +20,6 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 24px 0px;
-  /* border: 1px solid red; */
 }
 
 .user-container {
@@ -30,7 +29,6 @@
   gap: 16px;
 }
 
-/* GHOST PARA EFEITO IMÃ / POSICIONAMENTO DO overflow-menu-wrapper  */
 #menu-ghost {
   width: 46px;
   height: 46px;

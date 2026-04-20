@@ -49,6 +49,7 @@
 
   #my-experiences {
     flex-direction: column;
+    justify-content: center;
   }
 
   /* GRID DE PROJETOS */

@@ -127,24 +127,6 @@
   display: flex;
 }
 
-.hero-cta {
-  height: var(--height-button);
-  max-width: 200px;
-  background: var(--color-cta);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-button);
-  padding: var(--padding-button);
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: var(--transition-hover);
-  font-weight: 300t;
-}
-
-.hero-cta:hover {
-  background: var(--color-cta-dark);
-}
-
 .hl {
   display: inline-block;
   background-color: #1c87d33a;

@@ -22,7 +22,7 @@ html {
   --color-accent: #0f6e56;
   --color-accent-dark: #085041;
   --color-cta: #1c88d3;
-  --color-cta-dark: #3f6f76;
+  --color-cta-dark: #1973b4;
   --color-border: #d3d1c7;
   --color-border-strong: #b4b2a9;
 
@@ -301,6 +301,23 @@ button {
   height: 4.2rem;
 }
 
+.hero-cta {
+  height: var(--height-button);
+  background: var(--color-cta);
+  color: #f5f5f5;
+  border: none;
+  border-radius: var(--radius-button);
+  padding: var(--padding-button);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition-hover);
+  font-weight: 600;
+}
+
+.hero-cta:hover {
+  background: var(--color-cta-dark);
+}
+
 .close-button svg {
   width: 2.4rem;
   height: 2.4rem;
@@ -337,6 +354,7 @@ a {
 
 .circle {
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .divider {
@@ -362,11 +380,6 @@ a {
 
   box-shadow: 0 8px 32px rgba(0, 0, 0, var(--shadow-opacity));
   transition: box-shadow 0.3s ease;
-}
-
-/* BLEND MODE */
-.texto-blend {
-  color: var(--color-cta);
 }
 
 .border-blend {
