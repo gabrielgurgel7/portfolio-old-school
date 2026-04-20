@@ -1,8 +1,10 @@
 #my-experiences {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(244px, 1fr));
   gap: 16px;
 }
 .article-wrapper {
+  aspect-ratio: 1 / 1;
   border-radius: 3.6rem;
   overflow: hidden; /* corta o conteúdo, incluindo a scrollbar */
   width: 100%;
@@ -13,10 +15,17 @@
 #my-experiences article {
   border-radius: 3.6rem;
   padding: 1.2rem;
-  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   height: 300px;
   overflow-y: auto;
   position: relative;
+}
+#my-experiences .about-me-gab main img {
+  width: 200px;
+}
+#my-experiences .about-me-gab {
+  background: linear-gradient(141deg, #1c88d3 5.73%, #f5f5f5 94.27%);
 }
 
 #my-experiences header {
