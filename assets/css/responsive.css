@@ -20,10 +20,6 @@
     font-size: 16px;
   }
 
-  #projects-section {
-    margin-top: 24px;
-  }
-
   .hero-status {
     justify-content: space-around;
   }
@@ -64,39 +60,6 @@
     /* border: 1px dashed rgb(0, 132, 255); */
   }
 
-  /* .box1,
-  .box2,
-  .box3,
-  .box4,
-  .box5 p {
-    text-align: left;
-    font-size: var(--text-md);
-  }
-  .box1,
-  .box2,
-  .box3,
-  .box4,
-  .box5 h2 {
-    text-align: left;
-    font-size: var(--text-xl);
-  } */
-
-  /* MODAL DE CRIAR PROJETO — fieldset vira 1 coluna */
-  #create-project-form fieldset {
-    grid-template-columns: 1fr;
-  }
-
-  #modal-create-project {
-    border-radius: 24px;
-    max-width: 95vw;
-  }
-
-  /* MODAL DE LOGIN */
-  #login {
-    max-width: 95vw;
-    border-radius: 24px;
-  }
-
   textarea {
     height: auto;
     min-height: 40px;
@@ -127,11 +90,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* Ícones de usuário ficam à direita do logo */
-  .user-container {
-    gap: 10px;
-  }
-
   /* GRID — 1 coluna em mobile */
   #container-projects {
     grid-template-columns: 1fr;
@@ -158,18 +116,6 @@
     min-height: 100dvh;
     border-radius: 0;
     margin: 0;
-  }
-
-  .modal-project-inner {
-    min-height: 100dvh;
-  }
-
-  /* MODAL DE LOGIN */
-  #login {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 24px 24px 0 0;
-    margin: auto 0 0 0; /* ancora na base da tela */
   }
 
   /* BOTÕES DE LOGIN empilhados */

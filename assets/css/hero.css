@@ -2,6 +2,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--gap-lg);
+  margin-top: 0; /* reset -> section global */
 }
 
 #hero-header {

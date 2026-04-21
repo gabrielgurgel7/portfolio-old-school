@@ -201,8 +201,9 @@ section {
   width: calc(100% - 24px);
   max-width: 1024px;
   margin: 0 auto;
-  margin-top: var(--gap-lg);
-  margin-bottom: var(--gap-lg);
+  margin-top: 6.4rem;
+  /* margin-bottom: var(--gap-lg);
+  border: 1px dashed rgb(0, 255, 98);*/
 }
 
 .flex-center {
