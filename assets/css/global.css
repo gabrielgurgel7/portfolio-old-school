@@ -428,6 +428,6 @@ a {
   display: inline-block;
   border-radius: 24px;
   padding: 6px 14px;
-  border: 1px dashed var(--color-cta);
+  border: 2px dashed var(--color-cta);
   box-shadow: var(--shadow);
 }

@@ -71,14 +71,14 @@
 }
 
 .tech-list li {
-  border: 1px solid #9fa3b8;
+  border: 2px solid #9fa3b8;
   border-radius: var(--radius-sm);
   padding: var(--padding-tech-list);
 }
 .tech-list li p {
   color: #9fa3b8;
   font-size: var(--text-sm);
-  font-weight: 300;
+  font-weight: 600;
 }
 
 .explore-project {
@@ -95,8 +95,9 @@
 .project-links .link-project {
   height: var(--height-button);
   font-size: var(--text-md);
+  font-weight: 600;
   padding: var(--padding-button);
-  border: 1px solid var(--color-cta);
+  border: 2px solid var(--color-cta);
   border-radius: var(--radius-button);
   box-shadow: none;
   color: var(--color-cta);
