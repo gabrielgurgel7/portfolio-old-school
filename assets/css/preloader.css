@@ -19,7 +19,7 @@
 #preloader svg path {
   fill: none;
   stroke: var(--color-cta);
-  stroke-width: 1px;
+  stroke-width: 2px;
   stroke-dasharray: 1700px;
   stroke-dashoffset: 1700px;
 }
