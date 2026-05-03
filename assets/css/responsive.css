@@ -1,5 +1,10 @@
 /* TABLET  (≤ 768px) */
 @media (max-width: 768px) {
+  #preloader svg {
+    width: 20rem;
+    height: auto;
+  }
+
   .main-header {
     padding: 12px;
   }

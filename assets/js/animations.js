@@ -310,3 +310,38 @@ ellipsisBtn.addEventListener("click", () => {
 
   isOpen = !isOpen;
 });
+
+// ─── PRELOADER ────────────────────────────────────
+const tl = gsap.timeline({
+  onComplete() {
+    gsap.to("#preloader", {
+      opacity: 0,
+      onComplete() {
+        gsap.to("#preloader", {
+          display: "none",
+        });
+      },
+    });
+  },
+});
+
+tl.to("#preloader path", {
+  duration: 2,
+  strokeDashoffset: 0,
+});
+
+tl.to(
+  "#preloader-text",
+  {
+    display: "block",
+    opacity: 1,
+    duration: 1,
+  },
+  "+= 0.3",
+);
+
+tl.to("#preloader path", {
+  fill: "#1e91e1",
+  duration: 1,
+  strokeDashoffset: 0,
+});
