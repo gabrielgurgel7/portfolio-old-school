@@ -26,7 +26,12 @@
   }
 
   .hero-status {
+    flex-direction: column;
     justify-content: space-around;
+  }
+
+  .cta-btn-links-wrapper {
+    flex-direction: column;
   }
 
   .hero-meta-row {

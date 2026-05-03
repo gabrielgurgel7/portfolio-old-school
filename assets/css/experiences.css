@@ -163,3 +163,13 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
+
+.exp-badge {
+  background-color: #fdd426;
+  border: none;
+}
+
+.skill-badge {
+  background-color: #3ddc84;
+  border: none;
+}

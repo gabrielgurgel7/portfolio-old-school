@@ -116,7 +116,7 @@ const createCard = (data) => {
       </div>
       <div class="explore-project">
         <a
-          class="link-project button-link flex-center"
+          class="cta-btn-link cta-btn-projects flex-center"
           href="${gitHub}"
           target="_blank"
           rel="noopener noreferrer"
