@@ -492,5 +492,6 @@ a {
   border-radius: 24px;
   padding: 6px 14px;
   border: 2px dashed var(--color-cta);
-  box-shadow: var(--shadow);
+
+  /* box-shadow: var(--shadow); */
 }
