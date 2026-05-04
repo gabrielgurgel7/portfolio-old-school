@@ -58,15 +58,15 @@
 }
 
 #hero-avatar {
-  width: 20rem;
-  height: 20rem;
-  border-radius: var(--radius-lg);
-  object-fit: cover;
-  padding: 4px;
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow);
-  transform: rotate(-10deg);
+  height: 400px;
 }
+
+/* border-radius: var(--radius-lg); */
+/* object-fit: cover; */
+/* padding: 4px; */
+/* background-color: var(--color-surface); */
+/* box-shadow: var(--shadow); */
+/* transform: rotate(-10deg); */
 
 .hero-meta-row {
   display: flex;

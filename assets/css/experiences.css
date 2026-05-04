@@ -139,3 +139,9 @@
   border: none;
   background-color: var(--color-cta);
 }
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

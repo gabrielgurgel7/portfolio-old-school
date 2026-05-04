@@ -33,6 +33,9 @@
   .cta-btn-links-wrapper {
     flex-direction: column;
   }
+  #hero-avatar {
+    height: 400px;
+  }
 
   .hero-meta-row {
     display: flex;
@@ -89,6 +92,10 @@
     justify-content: space-between;
     padding: 12px 0;
     gap: 8px;
+  }
+
+  #hero-avatar {
+    height: 200px;
   }
 
   /* Esconde os links de navegação e exibe só os ícones */
