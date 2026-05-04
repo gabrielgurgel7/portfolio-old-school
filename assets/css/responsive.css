@@ -33,9 +33,9 @@
   .cta-btn-links-wrapper {
     flex-direction: column;
   }
-  #hero-avatar {
-    height: 400px;
-  }
+  /* #hero-avatar {
+    height: 800px;
+  } */
 
   .hero-meta-row {
     display: flex;
