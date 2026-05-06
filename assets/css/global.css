@@ -24,18 +24,18 @@ html {
   --color-800: #c1d9eb;
   --color-900: #edf3f8;
 
-  /* PALETA PRINCIPAL */
-  --color-bg: var(--color-900);
-  --color-bg-secondary: var(--color-800);
-  --color-surface: #ffffff;
-  --color-text: var(--color-200);
-  --color-text-muted: #5a5e73;
-  --color-accent: var(--color-300);
-  --color-accent-dark: var(--color-200);
+  /* PALETA PRINCIPAL — dark theme como padrão */
+  --color-bg: var(--color-100);
+  --color-bg-secondary: var(--color-200);
+  --color-surface: var(--color-200);
+  --color-text: var(--color-900);
+  --color-text-muted: var(--color-700);
+  --color-accent: var(--color-600);
+  --color-accent-dark: var(--color-500);
   --color-cta: var(--color-500);
-  --color-cta-dark: var(--color-400);
-  --color-border: var(--color-700);
-  --color-border-strong: var(--color-600);
+  --color-cta-dark: var(--color-600);
+  --color-border: var(--color-300);
+  --color-border-strong: var(--color-400);
 
   /* ALIASES (compatibilidade interna) */
   --header-icons: var(--color-accent);
@@ -107,7 +107,6 @@ html {
   --text-2xl: 2.4rem;
   --text-3xl: 3.2rem;
   --text-4xl: 4.2rem;
-  --text-5xl: 5.2rem;
 
   /* FONT WEIGHT SCALE */
   --font-light: 300;
@@ -121,6 +120,7 @@ html {
 
   /* SHADOWS */
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-mac: 3px 3px 0 var(--color-cta-dark);
 
   /* TRANSITIONS */
   --transitions: 0.03s;
@@ -150,6 +150,23 @@ body {
   background-color: var(--color-bg);
 }
 
+/* LIGHT THEME (alternativa ao padrão dark) */
+.light-theme {
+  --color-bg: var(--color-900);
+  --color-bg-secondary: var(--color-800);
+  --color-surface: #ffffff;
+  --color-text: var(--color-200);
+  --color-text-muted: #5a5e73;
+  --color-accent: var(--color-300);
+  --color-accent-dark: var(--color-200);
+  --color-cta: var(--color-500);
+  --color-cta-dark: var(--color-400);
+  --color-border: var(--color-700);
+  --color-border-strong: var(--color-600);
+  background-color: var(--color-bg);
+}
+
+/* DARK THEME (mantido por compatibilidade com o JS existente) */
 .dark-theme {
   --color-bg: var(--color-100);
   --color-bg-secondary: var(--color-200);
@@ -278,33 +295,40 @@ textarea::placeholder {
   color: var(--color-text-muted);
 }
 
-/* BOTÃO (GLOBAL) */
+/* BOTÃO (GLOBAL) — Estilo Macintosh 1984 */
 button {
   height: var(--height-button);
   width: 100%;
-  border: none;
+  border: 2px solid var(--color-cta-dark);
   padding: var(--padding-button);
   font-size: var(--text-md);
   font-weight: var(--font-bold);
   cursor: pointer;
   background-color: var(--color-cta);
   color: #ffffff;
-  transition: var(--transition-hover);
-  border-radius: var(--radius-button);
+  border-radius: 0;
+  box-shadow: var(--shadow-mac);
+  transition: none;
 }
 
-/* button:hover {
+button:active {
   background-color: var(--color-cta-dark);
-} */
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
 
 /* BOTÃO PRIMÁRIO */
 .primary-button {
   background-color: var(--color-accent);
   color: #ffffff;
+  border-color: var(--color-accent-dark);
+  box-shadow: 3px 3px 0 var(--color-accent-dark);
 }
 
-.primary-button:hover {
+.primary-button:active {
   background-color: var(--color-accent-dark);
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 /* LINK BUTTONS */
@@ -314,32 +338,39 @@ button {
   justify-content: center;
   height: var(--height-button);
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: var(--font-semibold);
   padding: var(--padding-button);
   gap: var(--gap-sm);
-  border-radius: var(--radius-button);
-  box-shadow: none;
+  border-radius: 0;
+  border: 2px solid var(--color-cta-dark);
+  box-shadow: var(--shadow-mac);
   background: var(--color-cta);
-  transition: var(--transition-hover);
+  color: #ffffff;
+  transition: none;
 }
 
 .cta-btn-link #theme-icon {
   color: var(--color-surface);
 }
 
-.cta-btn-link:hover {
+.cta-btn-link:active {
   background: var(--color-cta-dark);
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 .cta-btn-projects {
   background: none;
   color: var(--color-cta);
   border: 2px solid var(--color-cta);
+  box-shadow: 3px 3px 0 var(--color-cta);
 }
 
-.cta-btn-projects:hover {
+.cta-btn-projects:active {
+  background: var(--color-cta);
   color: var(--color-surface);
-  border: 2px solid var(--color-cta-dark);
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 .project-links {
@@ -352,18 +383,20 @@ button {
 .project-links .link-project {
   height: var(--height-button);
   font-size: var(--text-md);
-  font-weight: 600;
+  font-weight: var(--font-semibold);
   padding: var(--padding-button);
   border: 2px solid var(--color-cta);
-  border-radius: var(--radius-button);
-  box-shadow: none;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--color-cta);
   color: var(--color-cta);
-  transition: var(--transition-hover);
+  transition: none;
 }
 
-.project-links a:hover {
+.project-links a:active {
   color: #ffffff;
   background-color: var(--color-cta);
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 /* BOTÃO CURTIR */

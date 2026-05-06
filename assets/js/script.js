@@ -30,11 +30,11 @@ const body = document.body;
 
 // FUNÇÃO ALTERNAR TEMA
 toggleThemeBtn.addEventListener("click", () => {
-  body.classList.toggle("dark-theme");
-  const isDark = body.classList.contains("dark-theme");
-  toggleThemeBtn.innerHTML = isDark
-    ? '<i id="theme-icon" data-lucide="sun"></i>'
-    : '<i id="theme-icon" data-lucide="moon"></i>';
+  body.classList.toggle("light-theme");
+  const isLight = body.classList.contains("light-theme");
+  toggleThemeBtn.innerHTML = isLight
+    ? '<i id="theme-icon" data-lucide="moon"></i>'
+    : '<i id="theme-icon" data-lucide="sun"></i>';
   lucide.createIcons();
 });
 
@@ -87,16 +87,18 @@ const createCard = (data) => {
   card.innerHTML = `
     <header class="project-header">
       <h3>${title}</h3>
-      <div class="elipse-container glass flex-center circle">
-        <a
+      <a
           class="explorer-link"
           href="${link}"
           target="_blank"
           rel="noopener noreferrer"
         >
+        <div class="elipse-container glass flex-center circle">
+        
           <i data-lucide="arrow-up-right"></i>
-        </a>
-      </div>
+        </div>
+      </a>
+      
     </header>
     <main>
       <div class="img-container-project">
@@ -106,13 +108,6 @@ const createCard = (data) => {
     <footer class="project-footer">
       <ul class="tech-list">${techItems}</ul>
       <div class="project-links flex-center">
-        <div class="interactive-btns">
-        <button class="joy-button circle">
-          <i id="theme-icon" data-lucide="thumbs-up"></i>
-        </button>
-        <button class="joy-button">
-          <i id="theme-icon" data-lucide="message-circle"></i>
-        </button>
       </div>
       <div class="explore-project">
         <a

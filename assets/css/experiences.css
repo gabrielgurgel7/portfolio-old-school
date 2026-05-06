@@ -2,12 +2,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(322.66px, 1fr));
   gap: 16px;
-  margin-top: 0; /* reset -> section global */
+  margin-top: 0;
 }
 .article-wrapper {
-  /* aspect-ratio: 4 / 3; */
   border-radius: 3.6rem;
-  overflow: hidden; /* corta o conteúdo, incluindo a scrollbar */
+  overflow: hidden;
   width: 100%;
   height: auto;
   box-shadow: var(--shadow);
@@ -23,14 +22,13 @@
   width: 100%;
   height: 100%;
 
-  /* justify-content: center; */
-
-  border-radius: 3.6rem;
-
   padding: 1.2rem;
   box-sizing: border-box;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
+
 #my-experiences article main p {
   font-size: var(--text-md);
 }
@@ -54,7 +52,8 @@
 
 #my-experiences main {
   display: flex;
-  gap: 0;
+  flex-direction: column;
+  gap: var(--gap-md);
 }
 
 #my-experiences main ul {
@@ -92,7 +91,6 @@
   flex-shrink: 0;
   width: 12px;
   height: 12px;
-  border-radius: 50%;
   background: var(--color-cta);
   margin-top: 4px; /* alinha com a primeira linha do h3 */
   z-index: 0;
@@ -125,12 +123,6 @@
 
 #my-experiences article::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.3);
-}
-
-/* Firefox */
-#my-experiences article {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
 
 .exp-badge,

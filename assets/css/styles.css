@@ -1,7 +1,8 @@
 @import url(global.css);
+@import url(preloader.css);
+@import url(cursor-gradient.css);
 @import url(page-content.css);
 @import url(header.css);
-@import url(preloader.css);
 @import url(flutuant-nav.css);
 @import url(perfil.css);
 @import url(project-card.css);
