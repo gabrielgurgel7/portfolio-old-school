@@ -43,10 +43,10 @@
   color: var(--color-cta);
 }
 
-.hero-greeting {
+.cta-btn-links-wrapper {
   display: flex;
-  align-items: center;
-  gap: 0.4em;
+  flex-direction: row;
+  gap: var(--gap-sm);
 }
 
 .img-container {
@@ -71,12 +71,6 @@
   font-size: clamp(2rem, 6vw, 3.5rem);
   color: var(--color-cta);
   line-height: 1.1;
-}
-
-.hero-status {
-  display: flex;
-  flex-direction: row;
-  gap: var(--gap-md);
 }
 
 .hero-description {
@@ -159,10 +153,4 @@
   height: 12px;
   background: #1c88d3;
   border-radius: 50%;
-}
-
-.cta-btn-links-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: var(--gap-xs);
 }

@@ -233,6 +233,10 @@ p {
   gap: var(--gap-md);
 }
 
+article {
+  border-radius: 16px;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -306,7 +310,7 @@ button {
   cursor: pointer;
   background-color: var(--color-cta);
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 8px;
   box-shadow: var(--shadow-mac);
   transition: none;
 }
@@ -341,7 +345,7 @@ button:active {
   font-weight: var(--font-semibold);
   padding: var(--padding-button);
   gap: var(--gap-sm);
-  border-radius: 0;
+  border-radius: 8px;
   border: 2px solid var(--color-cta-dark);
   box-shadow: var(--shadow-mac);
   background: var(--color-cta);

@@ -1,32 +1,6 @@
-// FUNÇÃO FECHAR (GLOBAL)
-const closeTab = (e) => {
-  const closeable = e.currentTarget.closest(".closeable");
-  const dialog = e.currentTarget.closest("dialog");
-
-  if (dialog) {
-    dialog.close();
-  } else if (closeable) {
-    closeable.classList.add("hidden");
-  }
-};
-
-// FUNÇÃO BOTÃO FECHAR (GLOBAL)
-document.querySelectorAll(".close-button").forEach((closeButton) => {
-  closeButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    closeTab(e);
-  });
-});
-
-// FECHA QUALQUER DIALOG AO CLICAR NO BACKDROP
-document.querySelectorAll("dialog").forEach((dialog) => {
-  dialog.addEventListener("click", (e) => {
-    if (e.target === dialog) dialog.close();
-  });
-});
-
 const toggleThemeBtn = document.querySelector("#theme-toggle");
 const body = document.body;
+const DATA_PATH = "data/projects.json";
 
 // FUNÇÃO ALTERNAR TEMA
 toggleThemeBtn.addEventListener("click", () => {
@@ -38,7 +12,11 @@ toggleThemeBtn.addEventListener("click", () => {
   lucide.createIcons();
 });
 
-const DATA_PATH = "data/projects.json";
+// CARREGA E RENDERIZA OS PROJETOS DO JSON
+const renderProjects = async () => {
+  const projects = await fetchProjects();
+  projects.forEach((project) => createCard(project));
+};
 
 // Lê o JSON do servidor (retorna [] se ainda não existir)
 const fetchProjects = async () => {
@@ -51,25 +29,9 @@ const fetchProjects = async () => {
   }
 };
 
-// Gera e baixa o JSON com o novo projeto já incluído
-const downloadJSON = async (newProject) => {
-  const projects = await fetchProjects();
-  projects.push(newProject);
-
-  const blob = new Blob([JSON.stringify(projects, null, 2)], {
-    type: "application/json",
-  });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "projects.json";
-  a.click();
-  URL.revokeObjectURL(url);
-};
-
 // FUNÇÃO CRIAR CARD
 const createCard = (data) => {
-  const { title, link, gitHub, imageSrc, technologies } = data;
+  const { title, link, gitHub, imageSrc, technologies, description } = data;
 
   const card = document.createElement("article");
   card.classList.add("project-card");
@@ -86,19 +48,7 @@ const createCard = (data) => {
 
   card.innerHTML = `
     <header class="project-header">
-      <h3>${title}</h3>
-      <a
-          class="explorer-link"
-          href="${link}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        <div class="elipse-container glass flex-center circle">
-        
-          <i data-lucide="arrow-up-right"></i>
-        </div>
-      </a>
-      
+      <h3>${title}</h3>  
     </header>
     <main>
       <div class="img-container-project">
@@ -107,8 +57,7 @@ const createCard = (data) => {
     </main>
     <footer class="project-footer">
       <ul class="tech-list">${techItems}</ul>
-      <div class="project-links flex-center">
-      </div>
+      <p><small>${description}</small></p>
       <div class="explore-project">
         <a
           class="cta-btn-link cta-btn-projects flex-center"
@@ -117,6 +66,15 @@ const createCard = (data) => {
           rel="noopener noreferrer"
           >GitHub</a
         >
+        <a
+          href="${link}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="cta-btn-link primary-button flex-center">
+            <i data-lucide="arrow-up-right"></i>
+          </div>
+        </a>
       </div>
     </footer>
   `;
@@ -134,12 +92,6 @@ const createCard = (data) => {
   }
 
   lucide.createIcons();
-};
-
-// CARREGA E RENDERIZA OS PROJETOS DO JSON
-const renderProjects = async () => {
-  const projects = await fetchProjects();
-  projects.forEach((project) => createCard(project));
 };
 
 // EXTRAI COR DOMINANTE DE UMA IMAGEM
@@ -182,15 +134,32 @@ const getDominantColor = (imgElement) => {
   });
 };
 
-// INPUTS DO FORMULÁRIO
-const projectTitle = document.querySelector("#project-title");
-const projectDate = document.querySelector("#creation-date");
-const descripitonProject = document.querySelector("#description");
-const projectTechnologies = document.querySelector("#technologies");
-const projectImage = document.querySelector("#project-image");
-const projectLink = document.querySelector("#link-project");
-const gitHubLink = document.querySelector("#link-github");
-const createProjectButton = document.querySelector("#create-project-btn");
+// FUNÇÃO FECHAR (GLOBAL)
+const closeTab = (e) => {
+  const closeable = e.currentTarget.closest(".closeable");
+  const dialog = e.currentTarget.closest("dialog");
+
+  if (dialog) {
+    dialog.close();
+  } else if (closeable) {
+    closeable.classList.add("hidden");
+  }
+};
+
+// FUNÇÃO BOTÃO FECHAR (GLOBAL)
+document.querySelectorAll(".close-button").forEach((closeButton) => {
+  closeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeTab(e);
+  });
+});
+
+// FECHA QUALQUER DIALOG AO CLICAR NO BACKDROP
+document.querySelectorAll("dialog").forEach((dialog) => {
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+});
 
 renderProjects();
 lucide.createIcons();
