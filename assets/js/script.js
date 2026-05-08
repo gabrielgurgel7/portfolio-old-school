@@ -164,12 +164,15 @@ document.querySelectorAll("dialog").forEach((dialog) => {
 });
 
 // FUNÇÃO AUDIO DE "CLICK" NOS BOTÕES
-document.addEventListener("click", (e) => {
-  if (e.target.closest(".btn-sound")) {
-    clickSound.currentTime = 0;
-    clickSound.play();
-  }
-});
+document.addEventListener(
+  "click",
+  (e) => {
+    if (e.target.closest(".btn-sound")) {
+      clickSound.play();
+    }
+  },
+  true,
+);
 
 renderProjects();
 lucide.createIcons();
