@@ -1,6 +1,7 @@
 const toggleThemeBtn = document.querySelector("#theme-toggle");
 const body = document.body;
 const DATA_PATH = "data/projects.json";
+const clickSound = new Audio("assets/sounds/single_click_keyboard.mp3");
 
 // FUNÇÃO ALTERNAR TEMA
 toggleThemeBtn.addEventListener("click", () => {
@@ -158,6 +159,13 @@ document.querySelectorAll(".close-button").forEach((closeButton) => {
 document.querySelectorAll("dialog").forEach((dialog) => {
   dialog.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
+  });
+});
+
+// FUNÇÃO AUDIO DE "CLICK" NOS BOTÕES
+document.querySelectorAll("button").forEach((button) => {
+  addEventListener("click", () => {
+    clickSound.play();
   });
 });
 
