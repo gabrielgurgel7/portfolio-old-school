@@ -4,32 +4,59 @@
     <!-- CONFIGURAÇÕES ESSENCIAIS -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gab Gurgel</title>
+    <title>Gabriel Gurgel — Front-end & UX/UI Design</title>
 
     <!-- SEO -->
     <meta
       name="description"
-      content="Sou Gabriel Gurgel, desenvolvedor front-end"
+      content="Gabriel Gurgel, desenvolvedor front-end e UX/UI designer. Criando interfaces com intenção, performance e identidade digital."
+    />
+    <meta name="author" content="Gabriel Gurgel" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#00C2E0" />
+    <link
+      rel="canonical"
+      href="https://gabrielgurgel7.github.io/portfolio-old-school/"
     />
 
     <!-- OPEN GRAPH -->
-    <meta name="og:title" content="Gabriel Gurgel" />
     <meta
-      name="og:description"
-      content="Sou Gabriel Gurgel, desenvolvedor front-end"
+      property="og:title"
+      content="Gabriel Gurgel — Front-end & UX/UI Design"
     />
     <meta
-      name="og:image"
-      content="https://gabrielgurgel7.github.io/portfolio-old-school/assets/logo/logo-gab.svg"
+      property="og:description"
+      content="Desenvolvedor front-end e UX/UI designer. Interfaces com intenção em cada detalhe."
     />
-    <meta name="og:type" content="website" />
     <meta
-      name="og:url"
-      content="https://gabrielgurgel7.github.io/portfolio-old-school"
+      property="og:image"
+      content="https://gabrielgurgel7.github.io/portfolio-old-school/assets/og-image.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://gabrielgurgel7.github.io/portfolio-old-school/"
+    />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Gabriel Gurgel — Front-end & UX/UI Design"
+    />
+    <meta
+      name="twitter:description"
+      content="Desenvolvedor front-end e UX/UI designer. Interfaces com intenção em cada detalhe."
+    />
+    <meta
+      name="twitter:image"
+      content="https://gabrielgurgel7.github.io/portfolio-old-school/assets/og-image.png"
     />
 
     <!-- FAVICON -->
-    <link rel="icon" href="logo-gab.svg" />
+    <link rel="icon" href="assets/logo/logo-gab.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/logo/logo-gab-180.png" />
 
     <!-- ESTILOS -->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -69,9 +96,15 @@
     <!-- CABEÇALHO PRONCIPAL -->
     <header class="main-header">
       <div class="container-navigation">
-        <a href="#hero"><img src="assets/logo/logo-gab.svg" alt="" /></a>
+        <a href="#hero" aria-label="Ir para o início">
+          <img src="assets/logo/logo-gab.svg" alt="Gabriel Gurgel" />
+        </a>
         <div class="user-container">
-          <button id="theme-toggle" class="btn-sound">
+          <button
+            id="theme-toggle"
+            class="btn-sound"
+            aria-label="Alternar tema"
+          >
             <i id="theme-icon" data-lucide="sun"></i>
           </button>
         </div>
@@ -116,7 +149,11 @@
                 rel="noopener noreferrer"
               >
                 Vamos conversar
-                <i id="theme-icon" data-lucide="arrow-right"></i>
+                <i
+                  id="theme-icon"
+                  href="mailto:gabrielgurgel635@gmail.com"
+                  data-lucide="arrow-right"
+                ></i>
               </a>
             </div>
           </div>

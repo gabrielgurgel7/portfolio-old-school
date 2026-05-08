@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabrielgurgel7.github.io/portfolio-old-school/sitemap.xml

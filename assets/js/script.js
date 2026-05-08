@@ -5,12 +5,18 @@ const clickSound = new Audio("assets/sounds/single_click_keyboard.mp3");
 
 // FUNÇÃO ALTERNAR TEMA
 toggleThemeBtn.addEventListener("click", () => {
-  body.classList.toggle("light-theme");
-  const isLight = body.classList.contains("light-theme");
-  toggleThemeBtn.innerHTML = isLight
-    ? '<i id="theme-icon" data-lucide="moon"></i>'
-    : '<i id="theme-icon" data-lucide="sun"></i>';
-  lucide.createIcons();
+  toggleThemeBtn.addEventListener("click", () => {
+    body.classList.toggle("light-theme");
+    const isLight = body.classList.contains("light-theme");
+    toggleThemeBtn.setAttribute(
+      "aria-label",
+      isLight ? "Ativar tema escuro" : "Ativar tema claro",
+    );
+    toggleThemeBtn.innerHTML = isLight
+      ? '<i data-lucide="moon"></i>'
+      : '<i data-lucide="sun"></i>';
+    lucide.createIcons();
+  });
 });
 
 // CARREGA E RENDERIZA OS PROJETOS DO JSON
@@ -67,12 +73,7 @@ const createCard = (data) => {
           rel="noopener noreferrer"
           >GitHub</a
         >
-        <a
-          class="btn-sound"
-          href="${link}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="btn-sound" href="${link}" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto">
           <div class="cta-btn-link primary-button flex-center">
             <i data-lucide="arrow-up-right"></i>
           </div>
@@ -82,58 +83,7 @@ const createCard = (data) => {
   `;
 
   document.getElementById("container-projects").appendChild(card);
-
-  if (imageSrc) {
-    const img = card.querySelector("img");
-    getDominantColor(img).then((color) => {
-      const header = card.querySelector(".project-header");
-      header.style.backgroundColor = color;
-      // opcional: ajusta a cor do texto para contrastar
-      header.style.color = "#ffffff";
-    });
-  }
-
   lucide.createIcons();
-};
-
-// EXTRAI COR DOMINANTE DE UMA IMAGEM
-const getDominantColor = (imgElement) => {
-  return new Promise((resolve) => {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    canvas.width = 50; // escala pequena = mais rápido
-    canvas.height = 50;
-
-    const draw = () => {
-      ctx.drawImage(imgElement, 0, 0, 50, 50);
-      const data = ctx.getImageData(0, 0, 50, 50).data;
-
-      const colorMap = {};
-      for (let i = 0; i < data.length; i += 4) {
-        const r = Math.round(data[i] / 32) * 32;
-        const g = Math.round(data[i + 1] / 32) * 32;
-        const b = Math.round(data[i + 2] / 32) * 32;
-        const brightness = (r + g + b) / 3;
-
-        // Ignora cores muito claras ou muito escuras
-        if (brightness < 30 || brightness > 220) continue;
-
-        const key = `${r},${g},${b}`;
-        colorMap[key] = (colorMap[key] || 0) + 1;
-      }
-
-      const dominant = Object.entries(colorMap).sort((a, b) => b[1] - a[1])[0];
-
-      resolve(dominant ? `rgb(${dominant[0]})` : "#1d1d1d");
-    };
-
-    if (imgElement.complete) {
-      draw();
-    } else {
-      imgElement.onload = draw;
-      imgElement.onerror = () => resolve("#1d1d1d");
-    }
-  });
 };
 
 // FUNÇÃO FECHAR (GLOBAL)
