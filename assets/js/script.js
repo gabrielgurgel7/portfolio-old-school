@@ -61,13 +61,14 @@ const createCard = (data) => {
       <p><small>${description}</small></p>
       <div class="explore-project">
         <a
-          class="cta-btn-link cta-btn-projects flex-center"
+          class="cta-btn-link cta-btn-projects btn-sound flex-center"
           href="${gitHub}"
           target="_blank"
           rel="noopener noreferrer"
           >GitHub</a
         >
         <a
+          class="btn-sound"
           href="${link}"
           target="_blank"
           rel="noopener noreferrer"
@@ -163,10 +164,11 @@ document.querySelectorAll("dialog").forEach((dialog) => {
 });
 
 // FUNÇÃO AUDIO DE "CLICK" NOS BOTÕES
-document.querySelectorAll("button").forEach((button) => {
-  addEventListener("click", () => {
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".btn-sound")) {
+    clickSound.currentTime = 0;
     clickSound.play();
-  });
+  }
 });
 
 renderProjects();
