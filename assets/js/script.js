@@ -5,18 +5,16 @@ const clickSound = new Audio("assets/sounds/single_click_keyboard.mp3");
 
 // FUNÇÃO ALTERNAR TEMA
 toggleThemeBtn.addEventListener("click", () => {
-  toggleThemeBtn.addEventListener("click", () => {
-    body.classList.toggle("light-theme");
-    const isLight = body.classList.contains("light-theme");
-    toggleThemeBtn.setAttribute(
-      "aria-label",
-      isLight ? "Ativar tema escuro" : "Ativar tema claro",
-    );
-    toggleThemeBtn.innerHTML = isLight
-      ? '<i data-lucide="moon"></i>'
-      : '<i data-lucide="sun"></i>';
-    lucide.createIcons();
-  });
+  body.classList.toggle("light-theme");
+  const isLight = body.classList.contains("light-theme");
+  toggleThemeBtn.setAttribute(
+    "aria-label",
+    isLight ? "Ativar tema escuro" : "Ativar tema claro",
+  );
+  toggleThemeBtn.innerHTML = isLight
+    ? '<i data-lucide="moon"></i>'
+    : '<i data-lucide="sun"></i>';
+  lucide.createIcons();
 });
 
 // CARREGA E RENDERIZA OS PROJETOS DO JSON
