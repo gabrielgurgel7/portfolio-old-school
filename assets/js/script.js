@@ -5,9 +5,12 @@ const clickSound = new Audio("assets/sounds/single_click_keyboard.mp3");
 const videoBg = document.querySelector("#hero-video-bg");
 videoBg.play();
 
+const imgBg = document.querySelector("#hero-img-bg");
+
 videoBg.addEventListener("ended", () => {
   videoBg.pause();
-  videoBg.currentTime = 0; // volta para o primeiro frame
+  videoBg.currentTime = videoBg.duration;
+  imgBg.style.opacity = "1";
 });
 
 // FUNÇÃO ALTERNAR TEMA
