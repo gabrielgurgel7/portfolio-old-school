@@ -2,14 +2,15 @@
   align-items: center;
   justify-content: center;
   gap: var(--gap-lg);
-  margin-top: 0; /* reset -> section global */
+  margin-top: -120px;
+  padding-top: 120px; /* reset -> section global */
 }
 
 #hero-header {
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding: 64px 24px;
+  padding: 0 24px 64px;
   gap: var(--gap-xl);
 }
 

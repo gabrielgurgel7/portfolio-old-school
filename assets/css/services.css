@@ -1,4 +1,4 @@
-#my-experiences {
+#services {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(322.66px, 1fr));
   gap: 16px;
@@ -14,7 +14,7 @@
   gap: 0;
 }
 
-#my-experiences article {
+#services article {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -29,41 +29,37 @@
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
 
-#my-experiences article main p {
+#services article main p {
   font-size: var(--text-md);
 }
 
-#my-experiences header {
+#services header {
   position: sticky;
   top: 0;
   z-index: 1;
   margin-bottom: 24px;
 }
 
-#my-experiences header h2 {
+#services header h2 {
   margin: 0;
   font-size: 1.8rem;
   color: var(--color-surface);
 }
 
-#my-experiences .gab-header {
-  margin: 0;
-}
-
-#my-experiences main {
+#services main {
   display: flex;
   flex-direction: column;
   gap: var(--gap-md);
 }
 
-#my-experiences main ul {
+#services main ul {
   list-style: none;
   margin: 0;
   padding: 0;
   position: relative;
 }
 
-#my-experiences main ul::before {
+#services main ul::before {
   content: "";
   position: absolute;
   left: 5px;
@@ -73,7 +69,7 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-#my-experiences main ul li {
+#services main ul li {
   display: flex;
   flex-direction: row; /* era column, corrigido */
   align-items: flex-start;
@@ -82,11 +78,11 @@
   position: relative;
 }
 
-#my-experiences main ul li:last-child {
+#services main ul li:last-child {
   padding-bottom: 0;
 }
 
-#my-experiences main ul li::before {
+#services main ul li::before {
   content: "";
   flex-shrink: 0;
   width: 12px;
@@ -96,32 +92,32 @@
   z-index: 0;
 }
 
-#my-experiences main ul li h3 {
+#services main ul li h3 {
   margin: 0 0 4px;
   font-size: 17px;
   font-weight: 500;
 }
 
-#my-experiences main ul li p {
+#services main ul li p {
   margin: 0;
   font-size: 13px;
   color: #888;
 }
 
-#my-experiences article::-webkit-scrollbar {
+#servicess article::-webkit-scrollbar {
   width: 4px;
 }
 
-#my-experiences article::-webkit-scrollbar-track {
+#services article::-webkit-scrollbar-track {
   background: transparent;
 }
 
-#my-experiences article::-webkit-scrollbar-thumb {
+#services article::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 99px;
 }
 
-#my-experiences article::-webkit-scrollbar-thumb:hover {
+#services article::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.3);
 }
 
