@@ -64,8 +64,11 @@
     <!-- BIBLIOTECAS -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <!-- ScrollSmoother requires ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
 
     <!-- SCRIPTS -->
     <script src="assets/js/script.js" defer></script>
@@ -110,11 +113,10 @@
     </div>
 
     <div id="cursor-gradient" aria-hidden="true"></div>
-
     <!-- CABEÇALHO PRINCIPAL -->
     <header class="main-header">
       <nav class="container-navigation" aria-label="Navegação principal">
-        <a href="#hero" aria-label="Ir para o início">
+        <a id="home" href="#hero" aria-label="Ir para o início">
           <img src="assets/logo/logo-gab.svg" alt="Gabriel Gurgel" />
         </a>
         <div class="user-container">
@@ -129,104 +131,119 @@
       </nav>
     </header>
 
-    <!-- CONTEÚDO DA PÁGINA -->
-    <main class="page-content">
-      <!-- SEÇÃO HERO -->
-      <section id="hero" aria-labelledby="hero-title">
-        <video id="hero-video-bg" autoplay muted playsinline aria-hidden="true">
-          <source src="assets/videos/intencao_gab_film.mp4" type="video/mp4" />
-        </video>
-        <img
-          id="hero-img-bg"
-          src="assets/imgs/webp/hero-bg.webp"
-          alt=""
-          aria-hidden="true"
-        />
-        <div id="hero-header">
-          <div id="hero-intro">
-            <div class="hero-title-row">
-              <h1>
-                👋 Olá! Sou Gabriel Gurgel, desenvolvedor front-end e UX/UI
-                designer.
-              </h1>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <!-- CONTEÚDO DA PÁGINA -->
+        <main class="page-content">
+          <!-- SEÇÃO HERO -->
+          <section id="hero" aria-labelledby="hero-title">
+            <video
+              id="hero-video-bg"
+              autoplay
+              muted
+              playsinline
+              aria-hidden="true"
+            >
+              <source
+                src="assets/videos/intencao_gab_film.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <img
+              id="hero-img-bg"
+              src="assets/imgs/webp/hero-bg.webp"
+              alt=""
+              aria-hidden="true"
+            />
+            <div id="hero-header">
+              <div id="hero-intro">
+                <div class="hero-title-row">
+                  <h1>
+                    👋 Sou Gabriel Gurgel, desenvolvedor front-end e UX/UI
+                    designer.
+                  </h1>
+                </div>
+                <nav
+                  class="cta-btn-links-wrapper"
+                  aria-label="Ações principais"
+                >
+                  <a
+                    class="cta-btn-link cta-btn-projects btn-sound"
+                    href="#projects"
+                  >
+                    Ver meus projetos
+                  </a>
+                  <a
+                    class="cta-btn-link primary-button btn-sound"
+                    href="mailto:gabrielgurgel635@gmail.com"
+                    rel="noopener noreferrer"
+                  >
+                    Vamos conversar
+                    <i data-lucide="arrow-right" aria-hidden="true"></i>
+                  </a>
+                </nav>
+              </div>
             </div>
-            <nav class="cta-btn-links-wrapper" aria-label="Ações principais">
-              <a
-                class="cta-btn-link cta-btn-projects btn-sound"
-                href="#projects-section"
-              >
-                Ver meus projetos
-              </a>
-              <a
-                class="cta-btn-link primary-button btn-sound"
-                href="mailto:gabrielgurgel635@gmail.com"
-                rel="noopener noreferrer"
-              >
-                Vamos conversar
-                <i data-lucide="arrow-right" aria-hidden="true"></i>
-              </a>
-            </nav>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <!-- SEÇÃO DE SERVIÇOS -->
-      <section id="services" aria-labelledby="services-title">
-        <div class="title-container">
-          <h2 id="services-title">
-            <span class="hl">Feito como</span> <br />
-            <span class="hl">se fosse meu.</span>
-          </h2>
-        </div>
+          <!-- SEÇÃO DE SERVIÇOS -->
+          <section id="services" aria-labelledby="services-title">
+            <div class="title-container">
+              <h2 id="services-title">
+                <span class="hl">Feito como</span> <br />
+                <span class="hl">se fosse meu.</span>
+              </h2>
+            </div>
 
-        <div class="article-wrapper">
-          <article aria-label="Serviço de Front-end">
-            <span class="exp-badge badge glass"><h3>Front-end</h3></span>
-            <p><strong>Sem gambiarras, sem atalhos.</strong></p>
-            <p>
-              Código limpo, performance real e interfaces que funcionam em
-              qualquer tela.
-            </p>
-          </article>
-        </div>
+            <div class="article-wrapper">
+              <article aria-label="Serviço de Front-end">
+                <span class="exp-badge badge glass"><h3>Front-end</h3></span>
+                <p><strong>Sem gambiarras, sem atalhos.</strong></p>
+                <p>
+                  Código limpo, performance real e interfaces que funcionam em
+                  qualquer tela.
+                </p>
+              </article>
+            </div>
 
-        <div class="article-wrapper">
-          <article aria-label="Serviço de UX e Design">
-            <span class="ux-design-badge badge glass"
-              ><h3>UX & Design</h3></span
-            >
-            <p><strong>Cada decisão visual tem uma razão.</strong></p>
-            <p>
-              Layouts pensados para quem vai usar — não para impressionar em
-              portfólio.
-            </p>
-          </article>
-        </div>
+            <div class="article-wrapper">
+              <article aria-label="Serviço de UX e Design">
+                <span class="ux-design-badge badge glass"
+                  ><h3>UX & Design</h3></span
+                >
+                <p><strong>Cada decisão visual tem uma razão.</strong></p>
+                <p>
+                  Layouts pensados para quem vai usar — não para impressionar em
+                  portfólio.
+                </p>
+              </article>
+            </div>
 
-        <div class="article-wrapper">
-          <article aria-label="Serviço de Identidade Digital">
-            <span class="id-digital-badge badge glass"
-              ><h3>Identidade Digital</h3></span
-            >
-            <p><strong>A primeira impressão é a que fica.</strong></p>
-            <p>
-              Seu site precisa transmitir quem você é antes de dizer uma
-              palavra, e eu estou aqui pra te ajudar com isso.
-            </p>
-          </article>
-        </div>
-      </section>
+            <div class="article-wrapper">
+              <article aria-label="Serviço de Identidade Digital">
+                <span class="id-digital-badge badge glass"
+                  ><h3>Identidade Digital</h3></span
+                >
+                <p><strong>A primeira impressão é a que fica.</strong></p>
+                <p>
+                  Seu site precisa transmitir quem você é antes de dizer uma
+                  palavra, e eu estou aqui pra te ajudar com isso.
+                </p>
+              </article>
+            </div>
+          </section>
 
-      <!-- SEÇÃO DE PROJETOS -->
-      <section id="projects-section" aria-labelledby="projects-title">
-        <h2 id="projects-title" class="badge glass">Projetos</h2>
-        <div id="container-projects"></div>
-      </section>
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer id="main-footer">
-      <p><small>© Gabriel Gurgel 2026</small></p>
-    </footer>
+          <!-- SEÇÃO DE PROJETOS -->
+          <section id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="badge glass">Projetos</h2>
+            <div id="container-projects"></div>
+          </section>
+        </main>
+        <!-- RODAPÉ -->
+        <footer id="main-footer">
+          <p><small>© Gabriel Gurgel 2026</small></p>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

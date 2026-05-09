@@ -1,3 +1,20 @@
+/* SCROLL SUAVE */
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+let smoother;
+
+let mm = gsap.matchMedia();
+
+mm.add("(min-width: 1024px)", () => {
+  smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 2,
+    effects: true,
+    normalizeScroll: true,
+  });
+});
+
 // ─── PRELOADER ────────────────────────────────────
 const tl = gsap.timeline({
   onComplete() {

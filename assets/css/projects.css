@@ -1,7 +1,7 @@
-#projects-section {
+#projects {
   gap: 1.6rem;
 }
-#projects-section h2 {
+#projects h2 {
   font-size: 1.8rem;
   color: var(--color-text);
 }

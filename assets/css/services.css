@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(322.66px, 1fr));
   gap: 16px;
-  margin-top: 0;
 }
 .article-wrapper {
   border-radius: 3.6rem;
@@ -27,6 +26,12 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #services article main p {
@@ -126,10 +131,4 @@
 .id-digital-badge {
   border: none;
   background-color: var(--color-cta);
-}
-
-.title-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

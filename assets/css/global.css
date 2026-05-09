@@ -572,3 +572,7 @@ a {
   background: #1c88d3;
   border-radius: 50%;
 }
+
+#smooth-content {
+  padding-top: 120px; /* ajusta para a altura real do seu header */
+}
