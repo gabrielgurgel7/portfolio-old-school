@@ -49,9 +49,9 @@
     align-items: center; /* texto alinhado à esquerda */
   }
 
-  .hero-title-row h1 {
+  /* .hero-title-row h1 {
     font-size: var(--text-5xl);
-  }
+  } */
 
   .hero-title-row h2 {
     text-align: left;

@@ -210,10 +210,9 @@ h6 {
   color: var(--color-text);
 }
 
-h1 {
-  font-size: var(--text-4xl);
-  color: var();
-}
+/* h1 {
+  font-size: var(--text-xl);
+} */
 
 h2 {
   font-size: var(--text-3xl);
@@ -531,4 +530,45 @@ a {
   border: 2px dashed var(--color-cta);
 
   /* box-shadow: var(--shadow); */
+}
+
+.hl {
+  display: inline-block;
+  background-color: #1c87d33a;
+  padding: 2px 8px;
+  position: relative;
+  border-left: 2px solid #1c88d3;
+}
+
+.hl:first-of-type {
+  border-right: none; /* sem barra direita no primeiro */
+}
+
+.hl:last-of-type {
+  border-left: none; /* sem barra esquerda no último */
+  border-right: 2px solid #1c88d3; /* barra direita só no último */
+}
+
+/* Ponto só no primeiro span */
+.hl:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  background: #1c88d3;
+  border-radius: 50%;
+}
+
+/* Ponto só no último span */
+.hl:last-of-type::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: -7px;
+  width: 12px;
+  height: 12px;
+  background: #1c88d3;
+  border-radius: 50%;
 }
