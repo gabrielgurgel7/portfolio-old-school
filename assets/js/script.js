@@ -2,6 +2,13 @@ const toggleThemeBtn = document.querySelector("#theme-toggle");
 const body = document.body;
 const DATA_PATH = "data/projects.json";
 const clickSound = new Audio("assets/sounds/single_click_keyboard.mp3");
+const videoBg = document.querySelector("#hero-video-bg");
+videoBg.play();
+
+videoBg.addEventListener("ended", () => {
+  videoBg.pause();
+  videoBg.currentTime = 0; // volta para o primeiro frame
+});
 
 // FUNÇÃO ALTERNAR TEMA
 toggleThemeBtn.addEventListener("click", () => {
