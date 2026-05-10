@@ -1,102 +1,22 @@
 #about-me {
-  flex-direction: row;
-  gap: 0;
-  border-radius: 3.6rem;
-  overflow: hidden;
-  background-color: var(--color-cta);
-  box-shadow: var(--shadow);
+  height: 600vh;
+  width: 100%; /* quanto mais alto, mais lento a animação */
+  /* border: 1px dashed rgb(255, 230, 65); */
 }
 
-#about-me h2 {
-  width: 30rem;
-  padding: var(--padding-lg);
-  font-size: var(--text-2xl);
-  color: var(--color-surface);
-  /* border: 1px dashed rgb(0, 132, 255); */
-}
-
-#about-me p {
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: #9fa3b8;
-}
-
-.profession-titles {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: 3.6rem;
-  padding: 2.4rem var(--padding-sm);
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow);
-  /* grid-template-columns: minmax(auto, 1fr) auto minmax(auto, 1fr);
-  grid-template-rows: repeat(5, minmax(200px, 1fr));
-  column-gap: var(--gap-lg); */
-  /* border: 1px dashed rgb(0, 132, 255); */
-}
-
-.publicity,
-.design,
-.developer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* border: 1px dashed rgb(0, 132, 255); */
-}
-.publicity h3,
-.design h3,
-.developer h3 {
-  color: var(--color-cta);
-}
-
-/* .time-line {
+.sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px dashed rgb(0, 132, 255); */
-
-/* .time-line-hr {
-  width: 0.1rem;
-  height: 100%;
-  background-color: var(--color-cta);
-  border: none;
+  /* border: 1px dashed rgb(255, 230, 65); */
 }
 
-.box1,
-.box2,
-.box3,
-.box4,
-.box5 p {
-  text-align: center;
+#hero-canvas {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  /* border: 1px dashed rgb(255, 230, 65); */
 }
-
-.box1 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 0;
-}
-
-.box2 {
-  grid-column-start: 3;
-  grid-row-start: 3;
-  grid-row-end: 0;
-}
-
-.box3 {
-  grid-column-start: 1;
-  grid-row-start: 4;
-  grid-row-end: 0;
-}
-
-.box4 {
-  grid-column-start: 2;
-  grid-row-start: 1;
-  grid-row-end: 6;
-}
-
-.box5 {
-  display: flex;
-  align-items: center;
-  /* border: 1px dashed rgb(0, 132, 255); */
