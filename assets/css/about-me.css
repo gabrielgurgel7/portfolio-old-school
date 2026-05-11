@@ -1,6 +1,7 @@
 #about-me {
   height: 600vh;
   width: 100%; /* quanto mais alto, mais lento a animação */
+  overflow: clip;
   /* border: 1px dashed rgb(255, 230, 65); */
 }
 

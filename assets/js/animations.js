@@ -86,10 +86,10 @@ async function init() {
 
   renderFrame(0);
 
-  const state = { frame: 0 };
+  const state = { frame: TOTAL - 1 };
 
   gsap.to(state, {
-    frame: TOTAL - 1,
+    frame: 0,
     snap: "frame",
     ease: "none",
     scrollTrigger: {

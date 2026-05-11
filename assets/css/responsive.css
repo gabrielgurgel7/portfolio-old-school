@@ -99,19 +99,6 @@
     height: 200px;
   }
 
-  /* Esconde os links de navegação e exibe só os ícones */
-  .navigation-list {
-    /* order: 3; vai para a 3ª linha */
-    width: 100%;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .navigation-list a {
-    font-size: 12px;
-    letter-spacing: 0.04em;
-  }
-
   /* GRID — 1 coluna em mobile */
   #container-projects {
     grid-template-columns: 1fr;
@@ -131,33 +118,8 @@
     flex-direction: row;
   }
 
-  /* MODAL DE CRIAR PROJETO — ocupa tela toda */
-  #modal-create-project {
-    width: 100%;
-    max-width: 100%;
-    min-height: 100dvh;
-    border-radius: 0;
-    margin: 0;
-  }
-
-  /* BOTÕES DE LOGIN empilhados */
-  .login-buttons {
-    flex-direction: column;
-  }
-
-  /* FORM ACTIONS alinha ao centro */
-  .form-actions {
-    flex-direction: column-reverse;
-    gap: 8px;
-  }
-
-  .form-actions button {
-    width: 100%;
-  }
-
-  textarea {
-    height: auto;
-    min-height: 40px;
-    padding: 8px 12px;
+  #hero-canvas {
+    width: 400px;
+    height: 400px;
   }
 }
