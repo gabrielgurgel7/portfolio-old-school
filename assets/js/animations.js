@@ -1,19 +1,5 @@
 /* SCROLL SUAVE */
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-let smoother;
-
-let mm = gsap.matchMedia();
-
-mm.add("(min-width: 1024px)", () => {
-  smoother = ScrollSmoother.create({
-    wrapper: "#smooth-wrapper",
-    content: "#smooth-content",
-    smooth: 2,
-    effects: true,
-    normalizeScroll: true,
-  });
-});
+gsap.registerPlugin(ScrollTrigger);
 
 // ─── PRELOADER ────────────────────────────────────
 const tl = gsap.timeline({
@@ -65,7 +51,7 @@ const TOTAL = 192;
 const frames = [];
 
 function framePath(i) {
-  return `assets/frames/img${i + 1}.png`;
+  return `assets/frames/macintosh${i + 1}.png`;
 }
 
 function preloadFrames() {
@@ -104,13 +90,13 @@ async function init() {
 
   gsap.to(state, {
     frame: TOTAL - 1,
-    snap: "frame", // garante sempre número inteiro
-    ease: "none", // progresso linear com o scroll
+    snap: "frame",
+    ease: "none",
     scrollTrigger: {
       trigger: "#about-me",
       start: "top top",
       end: "bottom bottom",
-      scrub: 0.5, // suavização leve (0 = instantâneo, 2 = mais lento)
+      scrub: 0.5,
     },
     onUpdate: () => renderFrame(Math.round(state.frame)),
   });
