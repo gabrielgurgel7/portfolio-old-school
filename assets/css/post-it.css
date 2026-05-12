@@ -1,0 +1,20 @@
+/* POST-IT */
+#post-it {
+  position: absolute;
+  z-index: 10;
+  margin: 0;
+  top: calc(50% - 80px); /* em vez de transform para posicionar */
+  left: 50%;
+  translate: -50% 0; /* translate separado do transform */
+  rotate: -4deg; /* rotate separado também */
+  transform-origin: center top;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+#post-it img {
+  width: 160px; /* ajuste conforme o tamanho do seu post-it */
+  display: block;
+  /* sombra para dar profundidade de "colado" */
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.35));
+}

@@ -84,8 +84,6 @@ async function init() {
     canvas.height = first.naturalHeight;
   }
 
-  renderFrame(0);
-
   const state = { frame: TOTAL - 1 };
 
   gsap.to(state, {
@@ -99,6 +97,20 @@ async function init() {
       scrub: 0.5,
     },
     onUpdate: () => renderFrame(Math.round(state.frame)),
+  });
+
+  gsap.to("#post-it", {
+    y: 600,
+    x: 40,
+    rotation: 25,
+    opacity: 0,
+    ease: "power2.in",
+    scrollTrigger: {
+      trigger: "#about-me",
+      start: "top top", // começa quando 1/3 da seção já passou
+      end: "top+=300px top", // termina antes da metade
+      scrub: 0.8,
+    },
   });
 }
 
