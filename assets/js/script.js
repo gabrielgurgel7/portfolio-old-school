@@ -7,6 +7,7 @@ videoBg.play();
 
 const imgBg = document.querySelector("#hero-img-bg");
 
+/* FUNÇÃO ENTRAR IMAGEM APÓS VÍDEO */
 videoBg.addEventListener("ended", () => {
   videoBg.pause();
   videoBg.currentTime = videoBg.duration;

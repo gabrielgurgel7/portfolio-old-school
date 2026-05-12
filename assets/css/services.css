@@ -1,8 +1,11 @@
 #services {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(322.66px, 1fr));
+  width: calc(100% - 24px);
+  max-width: 1024px;
   gap: 16px;
 }
+
 .article-wrapper {
   border-radius: 3.6rem;
   overflow: hidden;

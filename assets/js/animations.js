@@ -1,7 +1,7 @@
 /* SCROLL SUAVE */
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── PRELOADER ────────────────────────────────────
+/* PRELOADER */
 const tl = gsap.timeline({
   onComplete() {
     gsap.to("#preloader", {
@@ -34,14 +34,6 @@ tl.to("#preloader path", {
   fill: "#1e91e1",
   duration: 1,
   strokeDashoffset: 0,
-});
-
-/* CURSOR GRADIENT */
-const gradient = document.getElementById("cursor-gradient");
-
-document.addEventListener("mousemove", (e) => {
-  gradient.style.left = e.clientX + "px";
-  gradient.style.top = e.clientY + "px";
 });
 
 /* ANIMAÇÃO MACINTOSH */
