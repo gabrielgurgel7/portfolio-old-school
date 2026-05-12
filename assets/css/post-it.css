@@ -16,5 +16,5 @@
   width: 160px; /* ajuste conforme o tamanho do seu post-it */
   display: block;
   /* sombra para dar profundidade de "colado" */
-  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.35));
+  /* filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.35)); */
 }

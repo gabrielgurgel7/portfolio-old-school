@@ -118,6 +118,10 @@
     flex-direction: row;
   }
 
+  .sticky-container {
+    flex-direction: column;
+  }
+
   #hero-canvas {
     width: 400px;
     height: 400px;
