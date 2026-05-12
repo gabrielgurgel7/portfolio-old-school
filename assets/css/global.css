@@ -239,8 +239,8 @@ article {
 section {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 24px);
-  max-width: 1024px;
+  /* width: calc(100% - 24px);
+  max-width: 1024px; */
   margin: 0 auto;
   margin-top: 6.4rem;
   /* margin-bottom: var(--gap-lg);
