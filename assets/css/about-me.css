@@ -1,5 +1,5 @@
 #about-me {
-  height: 600vh;
+  height: 300vh;
   width: 100%; /* quanto mais alto, mais lento a animação */
   overflow: clip;
   /* border: 1px dashed rgb(255, 230, 65); */
@@ -9,14 +9,10 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url("assets/imgs/jpg/brown-fabric.jpg");
-  background-position: center;
-  background-size: contain;
   /* border: 1px dashed rgb(255, 230, 65); */
 }
 
