@@ -84,6 +84,8 @@ async function init() {
     canvas.height = first.naturalHeight;
   }
 
+  renderFrame(TOTAL - 1);
+
   const state = { frame: TOTAL - 1 };
 
   gsap.to(state, {
