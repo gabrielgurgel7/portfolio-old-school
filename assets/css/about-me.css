@@ -14,7 +14,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url("/assets/imgs/jpg/brown-fabric.jpg");
+  background-image: url("assets/imgs/jpg/brown-fabric.jpg");
   background-position: center;
   background-size: contain;
   /* border: 1px dashed rgb(255, 230, 65); */
