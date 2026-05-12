@@ -1,14 +1,11 @@
 @import url(global.css);
+@import url(responsive.css);
 @import url(preloader.css);
-@import url(cursor-gradient.css);
 @import url(page-content.css);
 @import url(header.css);
-@import url(flutuant-nav.css);
-@import url(perfil.css);
 @import url(hero.css);
 @import url(services.css);
 @import url(projects.css);
+@import url(post-it.css);
 @import url(about-me.css);
 @import url(footer.css);
-@import url(responsive.css);
-@import url(post-it.css);
